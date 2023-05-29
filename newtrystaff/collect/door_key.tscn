@@ -1,0 +1,80 @@
+[gd_scene load_steps=16 format=3 uid="uid://ceatab26i6n51"]
+
+[ext_resource type="Script" path="res://newtrystaff/collect/door_key.gd" id="1_6ahc7"]
+[ext_resource type="Texture2D" uid="uid://b5wxafhck1tfn" path="res://newtrystaff/every/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Effect/1.png" id="2_5vr2w"]
+[ext_resource type="Texture2D" uid="uid://byg4kx2btd3tf" path="res://newtrystaff/every/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Effect/2.png" id="3_hlfj5"]
+[ext_resource type="Texture2D" uid="uid://bcctmmtbx4xc2" path="res://newtrystaff/every/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Effect/3.png" id="4_mgrev"]
+[ext_resource type="Texture2D" uid="uid://cdutjs7edafgx" path="res://newtrystaff/every/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Effect/4.png" id="5_g81jl"]
+[ext_resource type="Texture2D" uid="uid://r05l51lxljuy" path="res://newtrystaff/every/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/1.png" id="6_k3xq7"]
+[ext_resource type="Texture2D" uid="uid://cmthb38xekyt5" path="res://newtrystaff/every/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/2.png" id="7_bp8qx"]
+[ext_resource type="Texture2D" uid="uid://chjpqtxixa5gv" path="res://newtrystaff/every/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/3.png" id="8_fje6s"]
+[ext_resource type="Texture2D" uid="uid://d0cq1t2byaulx" path="res://newtrystaff/every/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/4.png" id="9_i0alc"]
+[ext_resource type="Texture2D" uid="uid://b6cic5iyqfn7c" path="res://newtrystaff/every/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/5.png" id="10_4i6kd"]
+[ext_resource type="Texture2D" uid="uid://cay446yx2k4bp" path="res://newtrystaff/every/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/6.png" id="11_1kxqx"]
+[ext_resource type="Texture2D" uid="uid://b4dei1f4acseu" path="res://newtrystaff/every/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/7.png" id="12_oxxpd"]
+[ext_resource type="Texture2D" uid="uid://d4agrbxrrhhwp" path="res://newtrystaff/every/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/8.png" id="13_yryjm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3u2fn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5vr2w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hlfj5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mgrev")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_g81jl")
+}],
+"loop": false,
+"name": &"collect",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_k3xq7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bp8qx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fje6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_i0alc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_4i6kd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_1kxqx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_oxxpd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_yryjm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ctcvy"]
+size = Vector2(6, 15)
+
+[node name="door_key" type="Area2D"]
+script = ExtResource("1_6ahc7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3u2fn")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ctcvy")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

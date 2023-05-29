@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ct6a443s6twku"]
+
+[ext_resource type="Texture2D" uid="uid://da7xo2vo3llcv" path="res://newtrystaff/level_staff/dust/dust_cell.png" id="1_wd61b"]
+
+[node name="dust" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_wd61b")

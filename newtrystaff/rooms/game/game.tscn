@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b81svijonl653"]
+
+[ext_resource type="PackedScene" uid="uid://crhh74i0r5oxb" path="res://newtrystaff/UI/main_menu/main_menu.tscn" id="1_6l6x2"]
+[ext_resource type="Script" path="res://newtrystaff/rooms/game/game.gd" id="1_7x8yh"]
+
+[node name="game" type="Node"]
+script = ExtResource("1_7x8yh")
+
+[node name="MainMenu" parent="." instance=ExtResource("1_6l6x2")]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true

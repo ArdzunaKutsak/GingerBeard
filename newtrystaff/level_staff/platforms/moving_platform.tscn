@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://chexlrrs11pxf"]
+
+[ext_resource type="Script" path="res://newtrystaff/level_staff/platforms/moving_platform.gd" id="1_bkufe"]
+[ext_resource type="PackedScene" uid="uid://d1l8sim1fj41e" path="res://newtrystaff/level_staff/platforms/6_cell_platform.tscn" id="1_tvnpf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ysel"]
+size = Vector2(32, 0.5)
+
+[node name="moving_platform" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_bkufe")
+
+[node name="6_cell_platform" parent="." instance=ExtResource("1_tvnpf")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_4ysel")

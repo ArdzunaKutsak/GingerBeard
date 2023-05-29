@@ -1,0 +1,122 @@
+[gd_scene load_steps=14 format=3 uid="uid://b6dejd3sxt01u"]
+
+[ext_resource type="Script" path="res://newtrystaff/level_staff/hide_enter/hide_enter_2.gd" id="1_go2us"]
+[ext_resource type="Texture2D" uid="uid://dj571jc144at1" path="res://newtrystaff/level_staff/hide_enter/wall_brick_small2.png" id="2_ct7uw"]
+[ext_resource type="Texture2D" uid="uid://bcpejkbcenopu" path="res://newtrystaff/level_staff/hide_enter/wall.png" id="3_e0nt2"]
+[ext_resource type="Texture2D" uid="uid://j7aam1lo7j3y" path="res://newtrystaff/level_staff/hide_enter/wall_2.png" id="4_1prea"]
+[ext_resource type="Script" path="res://newtrystaff/level_staff/hide_enter/brick.gd" id="4_llqoh"]
+[ext_resource type="Texture2D" uid="uid://d30cy2wmi6svo" path="res://newtrystaff/level_staff/hide_enter/wall_brick.png" id="5_bdkpk"]
+[ext_resource type="Texture2D" uid="uid://buutngqhbyksa" path="res://newtrystaff/level_staff/hide_enter/wall_brick_small1.png" id="6_im4pe"]
+[ext_resource type="Texture2D" uid="uid://bmx458cacmfwj" path="res://newtrystaff/level_staff/hide_enter/wall_brick3.png" id="7_veqqa"]
+[ext_resource type="Texture2D" uid="uid://2yv6tcrb5vkl" path="res://newtrystaff/level_staff/hide_enter/wall_brick33.png" id="8_ik7mf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mycnv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ct7uw")
+}],
+"loop": true,
+"name": &"first_hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_e0nt2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_1prea")
+}],
+"loop": true,
+"name": &"last_hit",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c43gh"]
+size = Vector2(20, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3c3wm"]
+size = Vector2(8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jurjl"]
+size = Vector2(29, 64)
+
+[node name="hide_enter_2" type="Node2D"]
+z_index = 20
+script = ExtResource("1_go2us")
+
+[node name="wall" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="wall"]
+sprite_frames = SubResource("SpriteFrames_mycnv")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall"]
+position = Vector2(-11, 0)
+shape = SubResource("RectangleShape2D_c43gh")
+
+[node name="brick" type="CharacterBody2D" parent="."]
+position = Vector2(-4, -12)
+collision_layer = 0
+collision_mask = 257
+script = ExtResource("4_llqoh")
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="brick"]
+texture = ExtResource("5_bdkpk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="brick"]
+position = Vector2(-6, -6)
+shape = SubResource("RectangleShape2D_3c3wm")
+
+[node name="brick2" type="CharacterBody2D" parent="."]
+position = Vector2(-5, 36)
+collision_layer = 0
+collision_mask = 257
+script = ExtResource("4_llqoh")
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="brick2"]
+texture = ExtResource("6_im4pe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="brick2"]
+shape = SubResource("RectangleShape2D_3c3wm")
+
+[node name="brick3" type="CharacterBody2D" parent="."]
+position = Vector2(-17, -31)
+collision_layer = 0
+collision_mask = 257
+script = ExtResource("4_llqoh")
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="brick3"]
+texture = ExtResource("7_veqqa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="brick3"]
+shape = SubResource("RectangleShape2D_3c3wm")
+
+[node name="brick4" type="CharacterBody2D" parent="."]
+position = Vector2(-10, 13)
+collision_layer = 0
+collision_mask = 257
+script = ExtResource("4_llqoh")
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="brick4"]
+texture = ExtResource("8_ik7mf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="brick4"]
+shape = SubResource("RectangleShape2D_3c3wm")
+
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(-15, 0)
+shape = SubResource("RectangleShape2D_jurjl")
+debug_color = Color(0.796078, 0.423529, 0.0588235, 0.419608)
+
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

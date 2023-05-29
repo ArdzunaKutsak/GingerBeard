@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvloqsiw3n1t7"]
+
+[ext_resource type="Texture2D" uid="uid://6e80d5nlplvw" path="res://newtrystaff/level_staff/sprites/RightChair.png" id="1_mrmgw"]
+
+[node name="chair" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mrmgw")

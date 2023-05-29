@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvunwchrnfuhg"]
+
+[ext_resource type="Texture2D" uid="uid://cqiifbb65l5w5" path="res://newtrystaff/every/Pirate Bomb/Sprites/7-Objects/12-Other Objects/Skull_big.png" id="1_57fa0"]
+
+[node name="warning" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_57fa0")

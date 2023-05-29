@@ -1,0 +1,499 @@
+[gd_scene load_steps=17 format=3 uid="uid://ckyeuj05xl453"]
+
+[ext_resource type="Script" path="res://newtrystaff/rooms/room_card/room_card.gd" id="1_2luyg"]
+[ext_resource type="Texture2D" uid="uid://cu65qk0proj2k" path="res://newtrystaff/every/Terrain (32x32).png" id="1_tpu1n"]
+[ext_resource type="PackedScene" uid="uid://k0icvtacahng" path="res://newtrystaff/level_staff/table/table.tscn" id="2_b8ao3"]
+[ext_resource type="PackedScene" uid="uid://bvloqsiw3n1t7" path="res://newtrystaff/level_staff/chair.tscn" id="3_7nbkf"]
+[ext_resource type="PackedScene" uid="uid://7ef3ecbftl7c" path="res://newtrystaff/level_staff/candle/candle.tscn" id="4_ifacd"]
+[ext_resource type="PackedScene" uid="uid://d1vjtos2acjpf" path="res://newtrystaff/level_staff/bottles/blue_bottle.tscn" id="5_bv52m"]
+[ext_resource type="Texture2D" uid="uid://772bmn0wpwb3" path="res://newtrystaff/level_staff/bottles/Green Bottle.png" id="6_oleho"]
+[ext_resource type="Texture2D" uid="uid://chcin4jq7xyku" path="res://newtrystaff/level_staff/bottles/Red Bottle.png" id="7_iar6c"]
+[ext_resource type="Texture2D" uid="uid://b3iwbt4h8g4wx" path="res://newtrystaff/collect/blue gem big.png" id="9_kf72p"]
+[ext_resource type="Script" path="res://newtrystaff/rooms/room_card/gems.gd" id="9_ucxeh"]
+[ext_resource type="Texture2D" uid="uid://diwpiitcgjjkc" path="res://newtrystaff/collect/empty_gem.png" id="10_radi4"]
+[ext_resource type="FontFile" uid="uid://qel5im2487lr" path="res://newtrystaff/fonts/zx_spectrum-7_bold.ttf" id="12_feoio"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q1r45"]
+texture = ExtResource("1_tpu1n")
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+16:2/0 = 0
+17:2/0 = 0
+20:2/0 = 0
+21:2/0 = 0
+22:2/0 = 0
+23:2/0 = 0
+26:2/0 = 0
+27:2/0 = 0
+28:2/0 = 0
+29:2/0 = 0
+32:2/0 = 0
+33:2/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+16:3/0 = 0
+17:3/0 = 0
+20:3/0 = 0
+21:3/0 = 0
+22:3/0 = 0
+23:3/0 = 0
+26:3/0 = 0
+27:3/0 = 0
+28:3/0 = 0
+29:3/0 = 0
+32:3/0 = 0
+33:3/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+16:4/0 = 0
+17:4/0 = 0
+20:4/0 = 0
+21:4/0 = 0
+22:4/0 = 0
+23:4/0 = 0
+26:4/0 = 0
+27:4/0 = 0
+28:4/0 = 0
+29:4/0 = 0
+32:4/0 = 0
+33:4/0 = 0
+34:4/0 = 0
+35:4/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+16:5/0 = 0
+17:5/0 = 0
+20:5/0 = 0
+21:5/0 = 0
+22:5/0 = 0
+23:5/0 = 0
+26:5/0 = 0
+27:5/0 = 0
+28:5/0 = 0
+29:5/0 = 0
+32:5/0 = 0
+33:5/0 = 0
+34:5/0 = 0
+35:5/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+14:8/0 = 0
+15:8/0 = 0
+16:8/0 = 0
+17:8/0 = 0
+20:8/0 = 0
+21:8/0 = 0
+22:8/0 = 0
+23:8/0 = 0
+26:8/0 = 0
+27:8/0 = 0
+28:8/0 = 0
+29:8/0 = 0
+32:8/0 = 0
+33:8/0 = 0
+34:8/0 = 0
+35:8/0 = 0
+14:9/0 = 0
+15:9/0 = 0
+16:9/0 = 0
+17:9/0 = 0
+20:9/0 = 0
+21:9/0 = 0
+22:9/0 = 0
+23:9/0 = 0
+26:9/0 = 0
+27:9/0 = 0
+28:9/0 = 0
+29:9/0 = 0
+32:9/0 = 0
+33:9/0 = 0
+34:9/0 = 0
+35:9/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+7:10/0 = 0
+10:10/0 = 0
+11:10/0 = 0
+14:10/0 = 0
+15:10/0 = 0
+16:10/0 = 0
+17:10/0 = 0
+20:10/0 = 0
+21:10/0 = 0
+22:10/0 = 0
+23:10/0 = 0
+26:10/0 = 0
+27:10/0 = 0
+28:10/0 = 0
+29:10/0 = 0
+32:10/0 = 0
+33:10/0 = 0
+34:10/0 = 0
+35:10/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+7:11/0 = 0
+10:11/0 = 0
+11:11/0 = 0
+14:11/0 = 0
+15:11/0 = 0
+16:11/0 = 0
+17:11/0 = 0
+20:11/0 = 0
+21:11/0 = 0
+22:11/0 = 0
+23:11/0 = 0
+26:11/0 = 0
+27:11/0 = 0
+28:11/0 = 0
+29:11/0 = 0
+32:11/0 = 0
+33:11/0 = 0
+34:11/0 = 0
+35:11/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+4:14/0 = 0
+5:14/0 = 0
+6:14/0 = 0
+7:14/0 = 0
+10:14/0 = 0
+11:14/0 = 0
+14:14/0 = 0
+15:14/0 = 0
+16:14/0 = 0
+17:14/0 = 0
+20:14/0 = 0
+21:14/0 = 0
+22:14/0 = 0
+23:14/0 = 0
+26:14/0 = 0
+27:14/0 = 0
+28:14/0 = 0
+29:14/0 = 0
+32:14/0 = 0
+33:14/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+4:15/0 = 0
+5:15/0 = 0
+6:15/0 = 0
+7:15/0 = 0
+10:15/0 = 0
+11:15/0 = 0
+14:15/0 = 0
+15:15/0 = 0
+16:15/0 = 0
+17:15/0 = 0
+20:15/0 = 0
+21:15/0 = 0
+22:15/0 = 0
+23:15/0 = 0
+26:15/0 = 0
+27:15/0 = 0
+28:15/0 = 0
+29:15/0 = 0
+32:15/0 = 0
+33:15/0 = 0
+2:16/0 = 0
+3:16/0 = 0
+4:16/0 = 0
+5:16/0 = 0
+6:16/0 = 0
+7:16/0 = 0
+10:16/0 = 0
+11:16/0 = 0
+14:16/0 = 0
+15:16/0 = 0
+16:16/0 = 0
+17:16/0 = 0
+20:16/0 = 0
+21:16/0 = 0
+22:16/0 = 0
+23:16/0 = 0
+26:16/0 = 0
+27:16/0 = 0
+28:16/0 = 0
+29:16/0 = 0
+32:16/0 = 0
+33:16/0 = 0
+34:16/0 = 0
+35:16/0 = 0
+2:17/0 = 0
+3:17/0 = 0
+4:17/0 = 0
+5:17/0 = 0
+6:17/0 = 0
+7:17/0 = 0
+10:17/0 = 0
+11:17/0 = 0
+14:17/0 = 0
+15:17/0 = 0
+16:17/0 = 0
+17:17/0 = 0
+20:17/0 = 0
+21:17/0 = 0
+22:17/0 = 0
+23:17/0 = 0
+26:17/0 = 0
+27:17/0 = 0
+28:17/0 = 0
+29:17/0 = 0
+32:17/0 = 0
+33:17/0 = 0
+34:17/0 = 0
+35:17/0 = 0
+2:18/0 = 0
+3:18/0 = 0
+4:18/0 = 0
+5:18/0 = 0
+6:18/0 = 0
+7:18/0 = 0
+10:18/0 = 0
+11:18/0 = 0
+2:19/0 = 0
+3:19/0 = 0
+4:19/0 = 0
+5:19/0 = 0
+6:19/0 = 0
+7:19/0 = 0
+10:19/0 = 0
+11:19/0 = 0
+14:20/0 = 0
+15:20/0 = 0
+16:20/0 = 0
+17:20/0 = 0
+20:20/0 = 0
+21:20/0 = 0
+22:20/0 = 0
+23:20/0 = 0
+26:20/0 = 0
+27:20/0 = 0
+28:20/0 = 0
+29:20/0 = 0
+32:20/0 = 0
+33:20/0 = 0
+34:20/0 = 0
+35:20/0 = 0
+14:21/0 = 0
+15:21/0 = 0
+16:21/0 = 0
+17:21/0 = 0
+20:21/0 = 0
+21:21/0 = 0
+22:21/0 = 0
+23:21/0 = 0
+26:21/0 = 0
+27:21/0 = 0
+28:21/0 = 0
+29:21/0 = 0
+32:21/0 = 0
+33:21/0 = 0
+34:21/0 = 0
+35:21/0 = 0
+2:22/0 = 0
+3:22/0 = 0
+4:22/0 = 0
+5:22/0 = 0
+6:22/0 = 0
+7:22/0 = 0
+10:22/0 = 0
+11:22/0 = 0
+14:22/0 = 0
+15:22/0 = 0
+16:22/0 = 0
+17:22/0 = 0
+20:22/0 = 0
+21:22/0 = 0
+22:22/0 = 0
+23:22/0 = 0
+26:22/0 = 0
+27:22/0 = 0
+28:22/0 = 0
+29:22/0 = 0
+32:22/0 = 0
+33:22/0 = 0
+34:22/0 = 0
+35:22/0 = 0
+2:23/0 = 0
+3:23/0 = 0
+4:23/0 = 0
+5:23/0 = 0
+6:23/0 = 0
+7:23/0 = 0
+10:23/0 = 0
+11:23/0 = 0
+14:23/0 = 0
+15:23/0 = 0
+16:23/0 = 0
+17:23/0 = 0
+20:23/0 = 0
+21:23/0 = 0
+22:23/0 = 0
+23:23/0 = 0
+26:23/0 = 0
+27:23/0 = 0
+28:23/0 = 0
+29:23/0 = 0
+32:23/0 = 0
+33:23/0 = 0
+34:23/0 = 0
+35:23/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_3kclc"]
+sources/0 = SubResource("TileSetAtlasSource_q1r45")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gom21"]
+atlas = ExtResource("9_kf72p")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1vjky"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_radi4")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gom21")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[node name="room_card" type="Node2D"]
+modulate = Color(0.607843, 0.607843, 0.607843, 1)
+script = ExtResource("1_2luyg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_3kclc")
+format = 2
+layer_0/tile_data = PackedInt32Array(65533, 262144, 2, 131069, 262144, 3, 65534, 327680, 2, 131070, 327680, 3, 65535, 262144, 2, 131071, 262144, 3, 0, 327680, 2, 65536, 327680, 3, 1, 262144, 2, 65537, 262144, 3, 2, 327680, 2, 65538, 327680, 3, -327683, 131072, 14, -262147, 131072, 15, -196611, 131072, 16, -131075, 131072, 17, -65539, 131072, 18, -3, 131072, 19, -327682, 196608, 14, -262146, 196608, 15, -196610, 196608, 16, -131074, 196608, 17, -65538, 196608, 18, -2, 196608, 19, -327681, 262144, 14, -262145, 262144, 15, -196609, 262144, 16, -131073, 262144, 17, -65537, 262144, 18, -1, 262144, 19, -393216, 327680, 14, -327680, 327680, 15, -262144, 327680, 16, -196608, 327680, 17, -131072, 327680, 18, -65536, 327680, 19, -262143, 393216, 16, -196607, 393216, 17, -131071, 393216, 18, -65535, 393216, 19, -262142, 458752, 16, -196606, 458752, 17, -131070, 458752, 18, -65534, 458752, 19, -393215, 393216, 14, -393214, 458752, 14, -327679, 393216, 15, -327678, 458752, 15)
+
+[node name="table" parent="." instance=ExtResource("2_b8ao3")]
+position = Vector2(5, -12)
+
+[node name="chair" parent="." instance=ExtResource("3_7nbkf")]
+position = Vector2(-24, -27)
+
+[node name="candle" parent="." instance=ExtResource("4_ifacd")]
+position = Vector2(2, -32)
+
+[node name="blue_bottle" parent="." instance=ExtResource("5_bv52m")]
+position = Vector2(16, -31)
+
+[node name="GreenBottle" type="Sprite2D" parent="."]
+position = Vector2(22, -33)
+texture = ExtResource("6_oleho")
+
+[node name="RedBottle" type="Sprite2D" parent="."]
+position = Vector2(-16, -26)
+texture = ExtResource("7_iar6c")
+
+[node name="gems" type="Node2D" parent="."]
+script = ExtResource("9_ucxeh")
+
+[node name="1" type="AnimatedSprite2D" parent="gems"]
+position = Vector2(-25, -72)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_1vjky")
+animation = &"off"
+
+[node name="2" type="AnimatedSprite2D" parent="gems"]
+position = Vector2(0, -56)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_1vjky")
+animation = &"off"
+
+[node name="3" type="AnimatedSprite2D" parent="gems"]
+position = Vector2(25, -71)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_1vjky")
+animation = &"off"
+
+[node name="Button" type="Button" parent="."]
+offset_left = -49.0
+offset_top = -96.0
+offset_right = 50.0
+offset_bottom = 33.0
+flat = true
+
+[node name="level" type="Label" parent="."]
+offset_left = -29.0
+offset_top = -124.0
+offset_right = 28.0
+offset_bottom = -110.0
+theme_override_fonts/font = ExtResource("12_feoio")
+theme_override_font_sizes/font_size = 10
+text = "Уровень"
+
+[node name="number" type="Label" parent="."]
+offset_left = -29.0
+offset_top = -110.0
+offset_right = 27.0
+offset_bottom = -87.0
+theme_override_fonts/font = ExtResource("12_feoio")
+theme_override_font_sizes/font_size = 10
+text = "#"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

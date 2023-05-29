@@ -1,0 +1,99 @@
+[gd_scene load_steps=14 format=3 uid="uid://clp7curt2xkvx"]
+
+[ext_resource type="Script" path="res://newtrystaff/scripts/SawTrap.gd" id="1_ugopr"]
+[ext_resource type="Texture2D" uid="uid://dcf67rqagaqa5" path="res://newtrystaff/Free/Traps/Saw/On (38x38).png" id="2_esmrp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrpwt"]
+atlas = ExtResource("2_esmrp")
+region = Rect2(0, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ciq4"]
+atlas = ExtResource("2_esmrp")
+region = Rect2(38, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xn0b"]
+atlas = ExtResource("2_esmrp")
+region = Rect2(76, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssabq"]
+atlas = ExtResource("2_esmrp")
+region = Rect2(114, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hw6g6"]
+atlas = ExtResource("2_esmrp")
+region = Rect2(152, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aok2t"]
+atlas = ExtResource("2_esmrp")
+region = Rect2(190, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5isj"]
+atlas = ExtResource("2_esmrp")
+region = Rect2(228, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbp77"]
+atlas = ExtResource("2_esmrp")
+region = Rect2(266, 0, 38, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_njte2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrpwt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ciq4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xn0b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssabq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hw6g6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aok2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5isj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbp77")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 20.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tpaea"]
+radius = 18.0278
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0jea4"]
+radius = 18.0
+
+[node name="saw_trap" type="Area2D"]
+collision_layer = 128
+collision_mask = 0
+script = ExtResource("1_ugopr")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_njte2")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.585142
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_tpaea")
+disabled = true
+
+[node name="Up" type="Timer" parent="CharacterBody2D"]
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0jea4")
+
+[connection signal="timeout" from="CharacterBody2D/Up" to="." method="_on_up_timeout"]

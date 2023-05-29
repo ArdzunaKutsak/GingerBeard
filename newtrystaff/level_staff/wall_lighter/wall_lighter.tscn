@@ -1,0 +1,145 @@
+[gd_scene load_steps=22 format=3 uid="uid://liudqix1ue8d"]
+
+[ext_resource type="Script" path="res://newtrystaff/level_staff/wall_lighter/wall_lighter.gd" id="1_6hhwy"]
+[ext_resource type="Texture2D" uid="uid://dhvfcvsepcl0h" path="res://newtrystaff/level_staff/wall_lighter/burning_loop_1.png" id="1_ylhnr"]
+[ext_resource type="Texture2D" uid="uid://bdsswnxsjjp5i" path="res://newtrystaff/level_staff/wall_lighter/light.png" id="2_3v774"]
+[ext_resource type="Texture2D" uid="uid://7oj1upydw4kd" path="res://newtrystaff/level_staff/wall_lighter/burning_loop_off.png" id="3_sd610"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6i6gs"]
+atlas = ExtResource("1_ylhnr")
+region = Rect2(0, 0, 24, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sxrb"]
+atlas = ExtResource("1_ylhnr")
+region = Rect2(24, 0, 24, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_os66v"]
+atlas = ExtResource("1_ylhnr")
+region = Rect2(48, 0, 24, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oo01i"]
+atlas = ExtResource("1_ylhnr")
+region = Rect2(72, 0, 24, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfqay"]
+atlas = ExtResource("1_ylhnr")
+region = Rect2(96, 0, 24, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ha7af"]
+atlas = ExtResource("1_ylhnr")
+region = Rect2(120, 0, 24, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0swq"]
+atlas = ExtResource("1_ylhnr")
+region = Rect2(144, 0, 24, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6gmj"]
+atlas = ExtResource("1_ylhnr")
+region = Rect2(168, 0, 24, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rv81w"]
+atlas = ExtResource("3_sd610")
+region = Rect2(0, 0, 24, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ap1rm"]
+atlas = ExtResource("3_sd610")
+region = Rect2(24, 0, 24, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iu0mi"]
+atlas = ExtResource("3_sd610")
+region = Rect2(48, 0, 24, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qedsy"]
+atlas = ExtResource("3_sd610")
+region = Rect2(72, 0, 24, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ooaf1"]
+atlas = ExtResource("3_sd610")
+region = Rect2(96, 0, 24, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfswj"]
+atlas = ExtResource("3_sd610")
+region = Rect2(120, 0, 24, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qomm"]
+atlas = ExtResource("3_sd610")
+region = Rect2(144, 0, 24, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gi6jr"]
+atlas = ExtResource("3_sd610")
+region = Rect2(168, 0, 24, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_65s8p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6i6gs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6sxrb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_os66v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oo01i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfqay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ha7af")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0swq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6gmj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rv81w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ap1rm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iu0mi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qedsy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ooaf1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfswj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qomm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gi6jr")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}]
+
+[node name="wall_lighter" type="Node2D"]
+script = ExtResource("1_6hhwy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_65s8p")
+animation = &"idle"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 1.5
+shadow_enabled = true
+texture = ExtResource("2_3v774")
+offset = Vector2(0, -20)
+texture_scale = 1.5

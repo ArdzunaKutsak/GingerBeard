@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8qj3hllahsna"]
+
+[ext_resource type="Script" path="res://newtrystaff/level_staff/door/profil_door/profil_door.gd" id="1_tsgn1"]
+[ext_resource type="Texture2D" uid="uid://c8pkimu82h5gi" path="res://newtrystaff/every/Sprites/11-Door/profil.png" id="2_ruoug"]
+[ext_resource type="Texture2D" uid="uid://dm0gdmrr8vnb1" path="res://newtrystaff/every/Sprites/11-Door/profil_open.png" id="3_rfxfl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fslin"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ruoug")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_rfxfl")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oenlo"]
+size = Vector2(10, 49)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_f4kck"]
+polygon = PackedVector2Array(-23, -21, -23, 28, -13, 28, -13, -21)
+
+[node name="profil_door" type="StaticBody2D"]
+z_index = 111
+script = ExtResource("1_tsgn1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(18, 0)
+sprite_frames = SubResource("SpriteFrames_fslin")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_oenlo")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(18, 0)
+occluder = SubResource("OccluderPolygon2D_f4kck")

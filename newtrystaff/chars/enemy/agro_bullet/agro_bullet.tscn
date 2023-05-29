@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7wd2712wavhp"]
+
+[ext_resource type="Script" path="res://newtrystaff/chars/enemy/agro_bullet/agro_bullet.gd" id="1_jhref"]
+[ext_resource type="Texture2D" uid="uid://bjx3h1pfxq480" path="res://icon.svg" id="2_ikjr7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ebr6f"]
+radius = 3.16228
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ipjh5"]
+radius = 3.0
+
+[node name="agro_bullet" type="CharacterBody2D"]
+visible = false
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_jhref")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 21
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ebr6f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ipjh5")
+debug_color = Color(0.960784, 0, 0.513726, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.046875, 0.0429687)
+texture = ExtResource("2_ikjr7")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

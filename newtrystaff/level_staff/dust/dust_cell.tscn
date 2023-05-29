@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0grhrm0x7yb3"]
+
+[ext_resource type="Texture2D" uid="uid://da7xo2vo3llcv" path="res://newtrystaff/level_staff/dust/dust_cell.png" id="1_h03xe"]
+[ext_resource type="Script" path="res://newtrystaff/level_staff/dust/dust_cell.gd" id="2_xyo06"]
+
+[node name="dust_cell" type="Sprite2D"]
+texture = ExtResource("1_h03xe")
+script = ExtResource("2_xyo06")

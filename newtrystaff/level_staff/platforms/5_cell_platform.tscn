@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://benbk6qvwndrf"]
+
+[ext_resource type="PackedScene" uid="uid://cpr7dcw5eq5ev" path="res://newtrystaff/level_staff/decorations.tscn" id="1_m44aq"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_dxunt"]
+polygon = PackedVector2Array(-63, 1, -63, 10, 15, 10, 15, 1)
+
+[node name="5_cell_platform" type="Node2D"]
+
+[node name="Decorations" parent="." instance=ExtResource("1_m44aq")]
+layer_0/tile_data = PackedInt32Array(65535, 458752, 4, 0, 720896, 4, 65532, 262144, 4, 65533, 327680, 4, 65534, 393216, 4)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_dxunt")

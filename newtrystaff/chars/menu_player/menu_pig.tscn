@@ -1,0 +1,66 @@
+[gd_scene load_steps=11 format=3 uid="uid://b5tl55dojdqaw"]
+
+[ext_resource type="Script" path="res://menuPig.gd" id="1_1fm5p"]
+[ext_resource type="Texture2D" uid="uid://bgrwdqewotbbq" path="res://newtrystaff/every/Sprites/03-Pig/Run (34x28).png" id="2_t1rvx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ys8t8"]
+atlas = ExtResource("2_t1rvx")
+region = Rect2(0, 0, 34, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhh32"]
+atlas = ExtResource("2_t1rvx")
+region = Rect2(34, 0, 34, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0odol"]
+atlas = ExtResource("2_t1rvx")
+region = Rect2(68, 0, 34, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45wbh"]
+atlas = ExtResource("2_t1rvx")
+region = Rect2(102, 0, 34, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mi3cp"]
+atlas = ExtResource("2_t1rvx")
+region = Rect2(136, 0, 34, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3h6t"]
+atlas = ExtResource("2_t1rvx")
+region = Rect2(170, 0, 34, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6gfkl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ys8t8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhh32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0odol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45wbh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mi3cp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3h6t")
+}],
+"loop": true,
+"name": &"run",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vdku"]
+
+[node name="MenuPig" type="CharacterBody2D"]
+script = ExtResource("1_1fm5p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6gfkl")
+animation = &"run"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0vdku")

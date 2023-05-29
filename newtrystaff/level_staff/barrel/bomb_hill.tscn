@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf2pqmu5s3o02"]
+
+[ext_resource type="Texture2D" uid="uid://lpmnkl5khbqd" path="res://newtrystaff/chars/enemy/bomb_pig/bomb/bomb_hill.png" id="1_kooag"]
+
+[node name="bomb_hill" type="Node2D"]
+modulate = Color(0.592157, 0.592157, 0.592157, 1)
+z_index = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_kooag")

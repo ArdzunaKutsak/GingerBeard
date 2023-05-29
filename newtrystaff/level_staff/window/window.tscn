@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpttwpiy714fa"]
+
+[ext_resource type="Texture2D" uid="uid://d1vd5io37l7s1" path="res://newtrystaff/level_staff/window/window.png" id="1_8vdan"]
+[ext_resource type="Texture2D" uid="uid://dedwmbs187qeg" path="res://newtrystaff/level_staff/window/window_light_gradient.png" id="2_ordk8"]
+
+[node name="window" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8vdan")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-2, -4)
+color = Color(1, 1, 1, 0)
+energy = 0.39
+shadow_enabled = true
+texture = ExtResource("2_ordk8")
+offset = Vector2(240, 240)

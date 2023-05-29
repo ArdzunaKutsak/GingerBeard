@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://7pp3l031pvvd"]
+
+[ext_resource type="Script" path="res://newtrystaff/UI/level_menu/level_menu.gd" id="1_xdibb"]
+[ext_resource type="Texture2D" uid="uid://b8gquf5c84a5l" path="res://newtrystaff/every/Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Prefabs/3.png" id="2_4nggy"]
+[ext_resource type="FontFile" uid="uid://qel5im2487lr" path="res://newtrystaff/fonts/zx_spectrum-7_bold.ttf" id="3_aj6hl"]
+
+[node name="level_menu" type="Node2D"]
+process_mode = 2
+script = ExtResource("1_xdibb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(69, 65)
+scale = Vector2(1.25391, 1.12104)
+texture = ExtResource("2_4nggy")
+
+[node name="restart" type="Button" parent="."]
+offset_left = 10.0
+offset_top = 13.0
+offset_right = 158.0
+offset_bottom = 52.0
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("3_aj6hl")
+theme_override_font_sizes/font_size = 20
+text = "Заново"
+flat = true
+
+[node name="continue" type="Button" parent="."]
+offset_left = 2.0
+offset_top = 49.0
+offset_right = 170.0
+offset_bottom = 88.0
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("3_aj6hl")
+theme_override_font_sizes/font_size = 20
+text = "Продолжить"
+flat = true
+
+[node name="home" type="Button" parent="."]
+offset_left = 8.0
+offset_top = 87.0
+offset_right = 160.0
+offset_bottom = 123.0
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("3_aj6hl")
+theme_override_font_sizes/font_size = 20
+text = "Меню"
+flat = true
+
+[connection signal="pressed" from="restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="home" to="." method="_on_home_pressed"]

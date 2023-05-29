@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://be5n3d7yu8t1a"]
+
+[ext_resource type="Script" path="res://newtrystaff/level_staff/slide_wall/slide_wall.gd" id="1_4bvcp"]
+[ext_resource type="Texture2D" uid="uid://djh5iad465jsg" path="res://newtrystaff/every/slide_wall.png" id="1_mst13"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwget"]
+size = Vector2(30, 126)
+
+[node name="slide_wall" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("1_4bvcp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mst13")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_lwget")

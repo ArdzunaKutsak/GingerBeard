@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://bifochsr3sgnv"]
+
+[ext_resource type="Script" path="res://newtrystaff/rooms/middle_window/death_window.gd" id="1_gby2y"]
+[ext_resource type="Texture2D" uid="uid://b8gquf5c84a5l" path="res://newtrystaff/every/Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Prefabs/3.png" id="2_lamtq"]
+[ext_resource type="Texture2D" uid="uid://c8phuca0r2lq3" path="res://newtrystaff/every/Pirate Bomb/Sprites/7-Objects/12-Other Objects/Skull.png" id="3_3hrev"]
+[ext_resource type="PackedScene" uid="uid://liudqix1ue8d" path="res://newtrystaff/level_staff/wall_lighter/wall_lighter.tscn" id="4_y8r3m"]
+[ext_resource type="FontFile" uid="uid://qel5im2487lr" path="res://newtrystaff/fonts/zx_spectrum-7_bold.ttf" id="5_b3mb5"]
+
+[node name="death_window" type="Node2D"]
+position = Vector2(36, 61)
+script = ExtResource("1_gby2y")
+
+[node name="board" type="Sprite2D" parent="."]
+position = Vector2(379, 187)
+texture = ExtResource("2_lamtq")
+
+[node name="skull" type="Sprite2D" parent="."]
+position = Vector2(379, 165)
+scale = Vector2(3, 3)
+texture = ExtResource("3_3hrev")
+
+[node name="wall_lighter" parent="." instance=ExtResource("4_y8r3m")]
+position = Vector2(420, 222)
+
+[node name="wall_lighter2" parent="." instance=ExtResource("4_y8r3m")]
+position = Vector2(337, 222)
+
+[node name="restart" type="Button" parent="."]
+offset_left = 351.0
+offset_top = 191.0
+offset_right = 407.0
+offset_bottom = 210.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_b3mb5")
+theme_override_font_sizes/font_size = 10
+text = "Заново"
+flat = true
+
+[node name="main_menu" type="Button" parent="."]
+offset_left = 351.0
+offset_top = 209.0
+offset_right = 407.0
+offset_bottom = 228.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_b3mb5")
+theme_override_font_sizes/font_size = 10
+text = "В меню"
+flat = true
+
+[connection signal="pressed" from="restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="main_menu" to="." method="_on_main_menu_pressed"]

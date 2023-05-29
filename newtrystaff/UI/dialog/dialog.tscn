@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0ffwb7gir2o3"]
+
+[ext_resource type="Script" path="res://newtrystaff/UI/dialog/dialog.gd" id="1_m0116"]
+[ext_resource type="Texture2D" uid="uid://bjx3h1pfxq480" path="res://icon.svg" id="1_q6wi7"]
+[ext_resource type="FontFile" uid="uid://qel5im2487lr" path="res://newtrystaff/fonts/zx_spectrum-7_bold.ttf" id="2_ls02s"]
+[ext_resource type="Texture2D" uid="uid://d1rlmpguf455n" path="res://newtrystaff/every/Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Mobile Buttons/Mobile Buttons/4.png" id="3_adv7v"]
+
+[node name="dialog" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m0116")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 639.0
+offset_bottom = 128.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("1_q6wi7")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 19.0
+offset_right = 509.0
+offset_bottom = 112.0
+theme_override_fonts/normal_font = ExtResource("2_ls02s")
+theme_override_font_sizes/normal_font_size = 20
+text = "aewdawd wadawd awda w awd awda awd awd aw dawd  awwd awd awd "
+
+[node name="Button" type="Button" parent="."]
+process_mode = 2
+layout_mode = 0
+offset_left = 526.0
+offset_top = 35.0
+offset_right = 590.0
+offset_bottom = 99.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Button"]
+position = Vector2(32, 32)
+scale = Vector2(2, 2)
+texture = ExtResource("3_adv7v")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

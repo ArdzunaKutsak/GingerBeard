@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dykyrvp8gplae"]
+
+[ext_resource type="Texture2D" uid="uid://iniabb17643" path="res://newtrystaff/Free/Traps/Spikes/Idle.png" id="1_52fal"]
+[ext_resource type="Script" path="res://newtrystaff/scripts/needles.gd" id="1_gxj8r"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4x4h5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_52fal")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ckxa"]
+size = Vector2(12.625, 6.25)
+
+[node name="needles" type="Area2D"]
+collision_layer = 128
+collision_mask = 0
+script = ExtResource("1_gxj8r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4x4h5")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4.875)
+shape = SubResource("RectangleShape2D_1ckxa")

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdv8jbdsvn7nr"]
+
+[ext_resource type="Script" path="res://newtrystaff/UI/back_button/back_button.gd" id="1_0c8gj"]
+[ext_resource type="Texture2D" uid="uid://e2evn05kwisb" path="res://newtrystaff/every/Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Mobile Buttons/Mobile Buttons/3.png" id="2_ofm3f"]
+
+[node name="back_button" type="Node2D"]
+script = ExtResource("1_0c8gj")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+texture_normal = ExtResource("2_ofm3f")
+
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]

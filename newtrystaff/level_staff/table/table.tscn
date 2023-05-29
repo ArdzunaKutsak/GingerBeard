@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://k0icvtacahng"]
+
+[ext_resource type="Texture2D" uid="uid://dn8qi7ppfp6nt" path="res://newtrystaff/level_staff/table/Table_right.png" id="1_5adx3"]
+
+[node name="table" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5adx3")

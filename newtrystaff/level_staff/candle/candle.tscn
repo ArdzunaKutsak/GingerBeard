@@ -1,0 +1,105 @@
+[gd_scene load_steps=13 format=3 uid="uid://7ef3ecbftl7c"]
+
+[ext_resource type="Texture2D" uid="uid://dw01cxxjr7ks4" path="res://newtrystaff/level_staff/candle/candle_sprites.png" id="1_8d5au"]
+[ext_resource type="Texture2D" uid="uid://bdsswnxsjjp5i" path="res://newtrystaff/level_staff/wall_lighter/light.png" id="2_ce1pj"]
+
+[sub_resource type="GDScript" id="GDScript_7it51"]
+script/source = "extends Node2D
+
+@onready var sprite = $AnimatedSprite2D
+
+func _ready():
+	sprite.play()
+
+func _process(_delta):
+	if sprite.frame < 2:
+		$PointLight2D.position.x = 1
+		return
+	if sprite.frame < 4:
+		$PointLight2D.position.x = 0
+		return
+	if sprite.frame < 6:
+		$PointLight2D.position.x = -1
+		return
+	if sprite.frame > 5:
+		$PointLight2D.position.x = 0
+
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cav7j"]
+atlas = ExtResource("1_8d5au")
+region = Rect2(0, 0, 8, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1yptr"]
+atlas = ExtResource("1_8d5au")
+region = Rect2(8, 0, 8, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2j5k"]
+atlas = ExtResource("1_8d5au")
+region = Rect2(16, 0, 8, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a08bc"]
+atlas = ExtResource("1_8d5au")
+region = Rect2(24, 0, 8, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kq56x"]
+atlas = ExtResource("1_8d5au")
+region = Rect2(32, 0, 8, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47eat"]
+atlas = ExtResource("1_8d5au")
+region = Rect2(40, 0, 8, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5q31a"]
+atlas = ExtResource("1_8d5au")
+region = Rect2(48, 0, 8, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knq3x"]
+atlas = ExtResource("1_8d5au")
+region = Rect2(56, 0, 8, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h6i6c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cav7j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1yptr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2j5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a08bc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kq56x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47eat")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5q31a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knq3x")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 20.0
+}]
+
+[node name="candle" type="Node2D"]
+script = SubResource("GDScript_7it51")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_h6i6c")
+animation = &"idle"
+frame_progress = 0.785382
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -11)
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = ExtResource("2_ce1pj")

@@ -1,9 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://ckyeuj05xl453"]
+[gd_scene load_steps=31 format=3 uid="uid://ckyeuj05xl453"]
 
 [ext_resource type="Script" path="res://newtrystaff/rooms/room_card/room_card.gd" id="1_2luyg"]
 [ext_resource type="Texture2D" uid="uid://cu65qk0proj2k" path="res://newtrystaff/every/Terrain (32x32).png" id="1_tpu1n"]
 [ext_resource type="PackedScene" uid="uid://k0icvtacahng" path="res://newtrystaff/level_staff/table/table.tscn" id="2_b8ao3"]
+[ext_resource type="Texture2D" uid="uid://cwmtbmtkn8pix" path="res://newtrystaff/every/Sprites/11-Door/Closiong (46x56).png" id="2_vc87b"]
 [ext_resource type="PackedScene" uid="uid://bvloqsiw3n1t7" path="res://newtrystaff/level_staff/chair.tscn" id="3_7nbkf"]
+[ext_resource type="Texture2D" uid="uid://d2p3a3cmr8grm" path="res://newtrystaff/every/Sprites/11-Door/Idle.png" id="3_vo4kc"]
+[ext_resource type="Texture2D" uid="uid://di07uoc4povam" path="res://newtrystaff/every/Sprites/11-Door/Opening (46x56).png" id="4_27xxl"]
 [ext_resource type="PackedScene" uid="uid://7ef3ecbftl7c" path="res://newtrystaff/level_staff/candle/candle.tscn" id="4_ifacd"]
 [ext_resource type="PackedScene" uid="uid://d1vjtos2acjpf" path="res://newtrystaff/level_staff/bottles/blue_bottle.tscn" id="5_bv52m"]
 [ext_resource type="Texture2D" uid="uid://772bmn0wpwb3" path="res://newtrystaff/level_staff/bottles/Green Bottle.png" id="6_oleho"]
@@ -12,21 +15,113 @@
 [ext_resource type="Script" path="res://newtrystaff/rooms/room_card/gems.gd" id="9_ucxeh"]
 [ext_resource type="Texture2D" uid="uid://diwpiitcgjjkc" path="res://newtrystaff/collect/empty_gem.png" id="10_radi4"]
 [ext_resource type="FontFile" uid="uid://qel5im2487lr" path="res://newtrystaff/fonts/zx_spectrum-7_bold.ttf" id="12_feoio"]
+[ext_resource type="Texture2D" uid="uid://ck55p4163qsq4" path="res://newtrystaff/every/Pirate Bomb/Sprites/7-Objects/10-Big Chain/1.png" id="16_cnmym"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8ixk"]
+atlas = ExtResource("2_vc87b")
+region = Rect2(0, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jl8f0"]
+atlas = ExtResource("2_vc87b")
+region = Rect2(46, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4r3u"]
+atlas = ExtResource("2_vc87b")
+region = Rect2(92, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8w0c"]
+atlas = ExtResource("3_vo4kc")
+region = Rect2(0, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nliyj"]
+atlas = ExtResource("4_27xxl")
+region = Rect2(0, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_453sw"]
+atlas = ExtResource("4_27xxl")
+region = Rect2(46, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0fuc"]
+atlas = ExtResource("4_27xxl")
+region = Rect2(92, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hj5o0"]
+atlas = ExtResource("4_27xxl")
+region = Rect2(138, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dmu6"]
+atlas = ExtResource("4_27xxl")
+region = Rect2(184, 0, 46, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2ewq4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8ixk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jl8f0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4r3u")
+}],
+"loop": false,
+"name": &"close",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8w0c")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nliyj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_453sw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0fuc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hj5o0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6dmu6")
+}],
+"loop": false,
+"name": &"open",
+"speed": 10.0
+}]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q1r45"]
 texture = ExtResource("1_tpu1n")
 2:2/0 = 0
+2:2/0/z_index = 13
 3:2/0 = 0
+3:2/0/z_index = 13
 4:2/0 = 0
+4:2/0/z_index = 13
 5:2/0 = 0
+5:2/0/z_index = 13
 6:2/0 = 0
+6:2/0/z_index = 13
 7:2/0 = 0
+7:2/0/z_index = 13
 10:2/0 = 0
 11:2/0 = 0
 14:2/0 = 0
+14:2/0/z_index = 13
 15:2/0 = 0
+15:2/0/z_index = 13
 16:2/0 = 0
+16:2/0/z_index = 13
 17:2/0 = 0
+17:2/0/z_index = 13
 20:2/0 = 0
 21:2/0 = 0
 22:2/0 = 0
@@ -38,17 +133,27 @@ texture = ExtResource("1_tpu1n")
 32:2/0 = 0
 33:2/0 = 0
 2:3/0 = 0
+2:3/0/z_index = 13
 3:3/0 = 0
+3:3/0/z_index = 13
 4:3/0 = 0
+4:3/0/z_index = 13
 5:3/0 = 0
+5:3/0/z_index = 13
 6:3/0 = 0
+6:3/0/z_index = 13
 7:3/0 = 0
+7:3/0/z_index = 13
 10:3/0 = 0
 11:3/0 = 0
 14:3/0 = 0
+14:3/0/z_index = 13
 15:3/0 = 0
+15:3/0/z_index = 13
 16:3/0 = 0
+16:3/0/z_index = 13
 17:3/0 = 0
+17:3/0/z_index = 13
 20:3/0 = 0
 21:3/0 = 0
 22:3/0 = 0
@@ -60,17 +165,27 @@ texture = ExtResource("1_tpu1n")
 32:3/0 = 0
 33:3/0 = 0
 2:4/0 = 0
+2:4/0/z_index = 13
 3:4/0 = 0
+3:4/0/z_index = 13
 4:4/0 = 0
+4:4/0/z_index = 13
 5:4/0 = 0
+5:4/0/z_index = 13
 6:4/0 = 0
+6:4/0/z_index = 13
 7:4/0 = 0
+7:4/0/z_index = 13
 10:4/0 = 0
 11:4/0 = 0
 14:4/0 = 0
+14:4/0/z_index = 13
 15:4/0 = 0
+15:4/0/z_index = 13
 16:4/0 = 0
+16:4/0/z_index = 13
 17:4/0 = 0
+17:4/0/z_index = 13
 20:4/0 = 0
 21:4/0 = 0
 22:4/0 = 0
@@ -84,17 +199,27 @@ texture = ExtResource("1_tpu1n")
 34:4/0 = 0
 35:4/0 = 0
 2:5/0 = 0
+2:5/0/z_index = 13
 3:5/0 = 0
+3:5/0/z_index = 13
 4:5/0 = 0
+4:5/0/z_index = 13
 5:5/0 = 0
+5:5/0/z_index = 13
 6:5/0 = 0
+6:5/0/z_index = 13
 7:5/0 = 0
+7:5/0/z_index = 13
 10:5/0 = 0
 11:5/0 = 0
 14:5/0 = 0
+14:5/0/z_index = 13
 15:5/0 = 0
+15:5/0/z_index = 13
 16:5/0 = 0
+16:5/0/z_index = 13
 17:5/0 = 0
+17:5/0/z_index = 13
 20:5/0 = 0
 21:5/0 = 0
 22:5/0 = 0
@@ -108,19 +233,31 @@ texture = ExtResource("1_tpu1n")
 34:5/0 = 0
 35:5/0 = 0
 2:6/0 = 0
+2:6/0/z_index = 13
 3:6/0 = 0
+3:6/0/z_index = 13
 4:6/0 = 0
+4:6/0/z_index = 13
 5:6/0 = 0
+5:6/0/z_index = 13
 6:6/0 = 0
+6:6/0/z_index = 13
 7:6/0 = 0
+7:6/0/z_index = 13
 10:6/0 = 0
 11:6/0 = 0
 2:7/0 = 0
+2:7/0/z_index = 13
 3:7/0 = 0
+3:7/0/z_index = 13
 4:7/0 = 0
+4:7/0/z_index = 13
 5:7/0 = 0
+5:7/0/z_index = 13
 6:7/0 = 0
+6:7/0/z_index = 13
 7:7/0 = 0
+7:7/0/z_index = 13
 10:7/0 = 0
 11:7/0 = 0
 14:8/0 = 0
@@ -405,7 +542,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("10_radi4")
 }],
-"loop": true,
+"loop": false,
 "name": &"off",
 "speed": 5.0
 }, {
@@ -413,7 +550,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gom21")
 }],
-"loop": true,
+"loop": false,
 "name": &"on",
 "speed": 5.0
 }]
@@ -422,50 +559,61 @@ animations = [{
 modulate = Color(0.607843, 0.607843, 0.607843, 1)
 script = ExtResource("1_2luyg")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_2ewq4")
+animation = &"open"
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_3kclc")
 format = 2
-layer_0/tile_data = PackedInt32Array(65533, 262144, 2, 131069, 262144, 3, 65534, 327680, 2, 131070, 327680, 3, 65535, 262144, 2, 131071, 262144, 3, 0, 327680, 2, 65536, 327680, 3, 1, 262144, 2, 65537, 262144, 3, 2, 327680, 2, 65538, 327680, 3, -327683, 131072, 14, -262147, 131072, 15, -196611, 131072, 16, -131075, 131072, 17, -65539, 131072, 18, -3, 131072, 19, -327682, 196608, 14, -262146, 196608, 15, -196610, 196608, 16, -131074, 196608, 17, -65538, 196608, 18, -2, 196608, 19, -327681, 262144, 14, -262145, 262144, 15, -196609, 262144, 16, -131073, 262144, 17, -65537, 262144, 18, -1, 262144, 19, -393216, 327680, 14, -327680, 327680, 15, -262144, 327680, 16, -196608, 327680, 17, -131072, 327680, 18, -65536, 327680, 19, -262143, 393216, 16, -196607, 393216, 17, -131071, 393216, 18, -65535, 393216, 19, -262142, 458752, 16, -196606, 458752, 17, -131070, 458752, 18, -65534, 458752, 19, -393215, 393216, 14, -393214, 458752, 14, -327679, 393216, 15, -327678, 458752, 15)
+layer_0/tile_data = PackedInt32Array(65533, 458752, 4, 131069, 983040, 4, 65534, 131072, 19, 131070, 262144, 2, 65535, 196608, 19, 131071, 327680, 2, 0, 393216, 19, 65536, 262144, 2, 1, 458752, 19, 65537, 262144, 2, 2, 131072, 6, 65538, 1048576, 4, -327683, 983040, 3, -262147, 458752, 4, -196611, 458752, 5, -131075, 458752, 3, -65539, 458752, 3, -3, 458752, 3, -327682, 196608, 7, -262146, 131072, 14, -196610, 131072, 15, -131074, 131072, 16, -65538, 131072, 17, -2, 131072, 18, -327681, 262144, 7, -262145, 196608, 14, -196609, 196608, 15, -131073, 196608, 16, -65537, 196608, 17, -1, 196608, 18, -393216, 327680, 7, -327680, 393216, 14, -262144, 393216, 15, -196608, 393216, 16, -131072, 393216, 17, -65536, 393216, 18, -262143, 458752, 15, -196607, 458752, 16, -131071, 458752, 17, -65535, 458752, 18, -262142, 131072, 5, -196606, 131072, 6, -131070, 131072, 4, -65534, 131072, 5, -393215, 393216, 7, -393214, 1048576, 3, -327679, 458752, 14, -327678, 131072, 4, -458755, 262144, 4, -393219, 262144, 5, -458754, 327680, 4, -393218, 327680, 5, -458753, 262144, 4, -393217, 262144, 5, -524288, 327680, 4, -458752, 327680, 5, -524287, 262144, 4, -458751, 262144, 5, -524286, 327680, 4, -458750, 327680, 5)
 
 [node name="table" parent="." instance=ExtResource("2_b8ao3")]
-position = Vector2(5, -12)
+visible = false
+position = Vector2(0, 4)
 
 [node name="chair" parent="." instance=ExtResource("3_7nbkf")]
+visible = false
 position = Vector2(-24, -27)
 
 [node name="candle" parent="." instance=ExtResource("4_ifacd")]
-position = Vector2(2, -32)
+visible = false
+position = Vector2(-3, -16)
 
 [node name="blue_bottle" parent="." instance=ExtResource("5_bv52m")]
-position = Vector2(16, -31)
+visible = false
+position = Vector2(11, -15)
 
 [node name="GreenBottle" type="Sprite2D" parent="."]
-position = Vector2(22, -33)
+visible = false
+position = Vector2(17, -17)
 texture = ExtResource("6_oleho")
 
 [node name="RedBottle" type="Sprite2D" parent="."]
-position = Vector2(-16, -26)
+visible = false
+position = Vector2(-21, -10)
 texture = ExtResource("7_iar6c")
 
 [node name="gems" type="Node2D" parent="."]
+z_index = 2
 script = ExtResource("9_ucxeh")
 
 [node name="1" type="AnimatedSprite2D" parent="gems"]
-position = Vector2(-25, -72)
+position = Vector2(-18, -70)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_1vjky")
 animation = &"off"
 
 [node name="2" type="AnimatedSprite2D" parent="gems"]
-position = Vector2(0, -56)
+position = Vector2(0, -50)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_1vjky")
 animation = &"off"
 
 [node name="3" type="AnimatedSprite2D" parent="gems"]
-position = Vector2(25, -71)
+position = Vector2(18, -70)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_1vjky")
 animation = &"off"
@@ -478,6 +626,7 @@ offset_bottom = 33.0
 flat = true
 
 [node name="level" type="Label" parent="."]
+z_index = 20
 offset_left = -29.0
 offset_top = -124.0
 offset_right = 28.0
@@ -487,6 +636,7 @@ theme_override_font_sizes/font_size = 10
 text = "Уровень"
 
 [node name="number" type="Label" parent="."]
+z_index = 20
 offset_left = -29.0
 offset_top = -110.0
 offset_right = 27.0
@@ -495,5 +645,21 @@ theme_override_fonts/font = ExtResource("12_feoio")
 theme_override_font_sizes/font_size = 10
 text = "#"
 horizontal_alignment = 1
+
+[node name="chains" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="chains"]
+z_index = 10
+position = Vector2(1, -33)
+rotation = 0.593412
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("16_cnmym")
+
+[node name="Sprite2D2" type="Sprite2D" parent="chains"]
+z_index = 10
+position = Vector2(-1, -34)
+rotation = -0.558505
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("16_cnmym")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

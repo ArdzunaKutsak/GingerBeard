@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://buiotofn7uvlf"]
+
+[ext_resource type="Script" path="res://newtrystaff/level_staff/sign/sign.gd" id="1_3aro2"]
+[ext_resource type="Texture2D" uid="uid://b6kaegyk1dxx8" path="res://newtrystaff/level_staff/sign/sign1.png" id="1_886nu"]
+[ext_resource type="Texture2D" uid="uid://b1ewuvrj6exma" path="res://newtrystaff/level_staff/sign/sign2.png" id="2_gd2nr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pxopn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_886nu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gd2nr")
+}],
+"loop": true,
+"name": &"touch",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_phiaq"]
+size = Vector2(62, 29)
+
+[node name="sign" type="Node2D"]
+script = ExtResource("1_3aro2")
+
+[node name="Sign" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_pxopn")
+animation = &"idle"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -14.5)
+shape = SubResource("RectangleShape2D_phiaq")
+
+[node name="TouchScreenButton" type="Button" parent="."]
+offset_left = -31.0
+offset_top = -35.0
+offset_right = 31.0
+offset_bottom = 7.0
+focus_mode = 0
+disabled = true
+flat = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="button_down" from="TouchScreenButton" to="." method="_on_touch_screen_button_button_down"]

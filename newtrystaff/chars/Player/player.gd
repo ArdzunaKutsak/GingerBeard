@@ -44,34 +44,3 @@ func dialog(array):
 func win():
 	var win_window_item = win_window.instantiate()
 	add_child(win_window_item)
-'''
-func _on_right_button_pressed():
-	velocity_dict.direction = 1
-	velocity_dict.velX = lerp(velocity.x, velocity_dict.direction * SPEED, 0.2)
-	$BM.change_state('right')
-
-
-func _on_right_button_released():
-	velocity_dict.direction = 0
-	velocity_dict.velX = 0
-	$BM.change_state('idle')
-	velocity.x = move_toward(velocity.x, 0, SPEED/10)
-
-
-func _on_left_button_pressed():
-	velocity_dict.direction = -1
-	velocity_dict.velX = lerp(velocity.x, velocity_dict.direction * SPEED, 0.2)
-	$BM.change_state('left')
-
-
-func _on_left_button_released():
-	velocity_dict.direction = 0
-	velocity_dict.velX = 0
-	$BM.change_state('idle')
-	velocity.x = move_toward(velocity.x, 0, SPEED/10)
-
-
-
-func _on_jump_button_pressed():
-	$BM.change_state('jump')
-'''

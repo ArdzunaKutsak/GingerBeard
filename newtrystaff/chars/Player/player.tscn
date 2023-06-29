@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=3 uid="uid://cq5p3e2ltdy3c"]
+[gd_scene load_steps=114 format=3 uid="uid://deuivgw4fo2xq"]
 
 [ext_resource type="Script" path="res://newtrystaff/chars/Player/player.gd" id="1_4gywn"]
 [ext_resource type="Texture2D" uid="uid://clogman884q7k" path="res://newtrystaff/every/Sprites/01-King Human/Idle (78x58).png" id="2_aa6u4"]
@@ -22,7 +22,7 @@
 [ext_resource type="Script" path="res://newtrystaff/chars/Player/collectBox.gd" id="18_4o8vk"]
 [ext_resource type="Script" path="res://newtrystaff/chars/Player/emptyState.gd" id="19_xv8c8"]
 [ext_resource type="Script" path="res://newtrystaff/chars/Player/BM.gd" id="20_ssk4p"]
-[ext_resource type="Script" path="res://newtrystaff/chars/Player/doorBox.gd" id="21_da788"]
+[ext_resource type="Script" path="res://newtrystaff/chars/Player/attack.gd" id="21_tjoob"]
 [ext_resource type="Script" path="res://newtrystaff/UI/healthBar.gd" id="22_6g1gj"]
 [ext_resource type="Texture2D" uid="uid://br3co3olo3gjh" path="res://newtrystaff/UI/gem_bar/Health Bar.png" id="23_2gk3c"]
 [ext_resource type="Texture2D" uid="uid://bngot1uqvlqlw" path="res://newtrystaff/every/Pirate Bomb/Sprites/7-Objects/11-Health Bar/Heart.png" id="24_i7kt1"]
@@ -47,12 +47,21 @@
 [ext_resource type="Texture2D" uid="uid://bi4dqg1relvah" path="res://newtrystaff/chars/Player/sprites/attack.png" id="44_hom5c"]
 [ext_resource type="Texture2D" uid="uid://btamy5ddhq3t6" path="res://newtrystaff/chars/Player/sprites/left(contur)_pressed.png" id="45_xrum7"]
 [ext_resource type="Texture2D" uid="uid://dykjbpvvhtojm" path="res://newtrystaff/chars/Player/sprites/attack_pressed.png" id="47_xxkro"]
-[ext_resource type="AudioStream" uid="uid://lb6kdgaape25" path="res://newtrystaff/chars/Player/sound/run.wav" id="48_ci1wy"]
+[ext_resource type="AudioStream" uid="uid://drf68rxq006b6" path="res://newtrystaff/chars/Player/sound/step1.wav" id="48_godbd"]
+[ext_resource type="AudioStream" uid="uid://d2e35jajvl0sp" path="res://newtrystaff/chars/Player/sound/step2.wav" id="49_61xrb"]
 [ext_resource type="AudioStream" uid="uid://bpdlvdhom1ne5" path="res://newtrystaff/chars/Player/sound/jump.wav" id="49_fylwu"]
 [ext_resource type="AudioStream" uid="uid://c4gly62qfeys2" path="res://newtrystaff/chars/Player/sound/hit.wav" id="49_thxh5"]
 [ext_resource type="AudioStream" uid="uid://dcw4k11ele6fv" path="res://newtrystaff/chars/Player/sound/hit2.wav" id="50_16ot0"]
+[ext_resource type="AudioStream" uid="uid://3dum0m3h63a7" path="res://newtrystaff/chars/Player/sound/step3.wav" id="50_m6vk0"]
+[ext_resource type="AudioStream" uid="uid://dkjr2q06n6uhv" path="res://newtrystaff/chars/Player/sound/step4.wav" id="51_8vccm"]
 [ext_resource type="AudioStream" uid="uid://ba1dngeb77fbg" path="res://newtrystaff/chars/Player/sound/hit3.wav" id="51_l1q8l"]
 [ext_resource type="AudioStream" uid="uid://wke6fib3dine" path="res://newtrystaff/chars/Player/sound/hit4.wav" id="52_j5c1u"]
+[ext_resource type="Texture2D" uid="uid://bi6nivqfobca2" path="res://64px.png" id="54_have2"]
+[ext_resource type="AudioStream" uid="uid://b6cajcvebmudf" path="res://newtrystaff/chars/Player/sound/hammer.wav" id="54_hc2v8"]
+[ext_resource type="Script" path="res://newtrystaff/chars/Player/blood.gd" id="55_vtsm1"]
+[ext_resource type="AudioStream" uid="uid://bf10tn266f0bm" path="res://newtrystaff/chars/Player/sound/попадание.mp3" id="60_4whpx"]
+[ext_resource type="AudioStream" uid="uid://cnlep1tgupsl3" path="res://newtrystaff/chars/Player/sound/player_hurt.wav" id="60_hlq3s"]
+[ext_resource type="AudioStream" uid="uid://c8m7y0na3nmd2" path="res://newtrystaff/sounds/menu_button_press.mp3" id="61_3rks3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iu10h"]
 atlas = ExtResource("2_c7lu7")
@@ -479,15 +488,17 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
+light_mask = 17
 z_index = 10
 collision_layer = 16
 collision_mask = 261
 script = ExtResource("1_4gywn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 17
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_x114d")
-animation = &"attack"
+animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(-8, 2)
@@ -567,9 +578,11 @@ script = ExtResource("20_ssk4p")
 
 [node name="CanAttackTimer" type="Timer" parent="."]
 
-[node name="HittingTimer" type="Timer" parent="."]
-
 [node name="DeathTimer" type="Timer" parent="."]
+
+[node name="BloodTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
 
 [node name="Zones" type="Node2D" parent="."]
 
@@ -578,6 +591,7 @@ collision_layer = 64
 collision_mask = 2
 monitoring = false
 monitorable = false
+script = ExtResource("21_tjoob")
 
 [node name="Area" type="CollisionPolygon2D" parent="Zones/Attack"]
 z_index = 1
@@ -609,7 +623,6 @@ z_index = 1000
 position = Vector2(-8, 0)
 collision_layer = 2048
 collision_mask = 2048
-script = ExtResource("21_da788")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/DoorBox"]
 position = Vector2(1, 11)
@@ -741,40 +754,69 @@ texture_pressed = ExtResource("47_xxkro")
 
 [node name="sounds" type="Node" parent="."]
 
-[node name="run" type="AudioStreamPlayer" parent="sounds"]
-stream = ExtResource("48_ci1wy")
-autoplay = true
+[node name="step1" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("48_godbd")
+
+[node name="step2" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("49_61xrb")
+
+[node name="step3" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("50_m6vk0")
+
+[node name="step4" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("51_8vccm")
 
 [node name="idle" type="AudioStreamPlayer" parent="sounds"]
 autoplay = true
 
 [node name="jump" type="AudioStreamPlayer" parent="sounds"]
 stream = ExtResource("49_fylwu")
-autoplay = true
 
 [node name="attack" type="AudioStreamPlayer" parent="sounds"]
-autoplay = true
+stream = ExtResource("54_hc2v8")
+volume_db = -15.0
 
 [node name="hit" type="AudioStreamPlayer" parent="sounds"]
 stream = ExtResource("49_thxh5")
-autoplay = true
 
 [node name="hit2" type="AudioStreamPlayer" parent="sounds"]
 stream = ExtResource("50_16ot0")
-autoplay = true
 
 [node name="hit3" type="AudioStreamPlayer" parent="sounds"]
 stream = ExtResource("51_l1q8l")
-autoplay = true
 
 [node name="hit4" type="AudioStreamPlayer" parent="sounds"]
 stream = ExtResource("52_j5c1u")
-autoplay = true
+
+[node name="enemy_hurt" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("60_4whpx")
+volume_db = -20.0
+
+[node name="player_hurt" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("60_hlq3s")
+volume_db = -10.0
+
+[node name="menu_button_press" type="AudioStreamPlayer" parent="sounds"]
+process_mode = 3
+stream = ExtResource("61_3rks3")
+
+[node name="blood" type="PointLight2D" parent="."]
+position = Vector2(-6, 4)
+enabled = false
+energy = 16.0
+range_item_cull_mask = 16
+texture = ExtResource("54_have2")
+texture_scale = 2.72
+script = ExtResource("55_vtsm1")
+
+[node name="Timer" type="Timer" parent="blood"]
+wait_time = 0.2
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="FSM/Attack" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="CanAttackTimer" to="." method="_on_can_attack_timer_timeout"]
-[connection signal="timeout" from="HittingTimer" to="Zones/HitBox" method="_on_hitting_timer_timeout"]
+[connection signal="timeout" from="BloodTimer" to="Zones/HitBox" method="_on_blood_timer_timeout"]
+[connection signal="area_entered" from="Zones/Attack" to="Zones/Attack" method="_on_area_entered"]
 [connection signal="area_entered" from="Zones/HitBox" to="Zones/HitBox" method="_on_area_entered"]
 [connection signal="area_entered" from="Zones/CollectBox" to="Zones/CollectBox" method="_on_area_entered"]
-[connection signal="area_entered" from="Zones/DoorBox" to="Zones/DoorBox" method="_on_area_entered"]
 [connection signal="pressed" from="UI/GUI/burger_menu" to="UI/GUI/level_menu" method="_on_burger_menu_pressed"]
+[connection signal="timeout" from="blood/Timer" to="blood" method="_on_timer_timeout"]

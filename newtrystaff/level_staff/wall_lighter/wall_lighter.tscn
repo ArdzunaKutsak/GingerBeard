@@ -138,6 +138,7 @@ sprite_frames = SubResource("SpriteFrames_65s8p")
 animation = &"idle"
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 0.862745, 0.678431, 1)
 energy = 1.5
 shadow_enabled = true
 texture = ExtResource("2_3v774")

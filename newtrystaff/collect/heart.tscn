@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://booe02j8640po"]
+[gd_scene load_steps=21 format=3 uid="uid://booe02j8640po"]
 
 [ext_resource type="Script" path="res://newtrystaff/collect/heart.gd" id="1_jewhs"]
 [ext_resource type="Texture2D" uid="uid://bfmf66v1sn1q2" path="res://newtrystaff/every/Sprites/12-Live and Coins/Big Heart Idle (18x14).png" id="1_jpvk8"]
 [ext_resource type="Texture2D" uid="uid://cb72okox65g4n" path="res://newtrystaff/Free/Items/Fruits/Collected.png" id="1_p1d3y"]
+[ext_resource type="AudioStream" uid="uid://bwwu54cu85vpw" path="res://newtrystaff/sounds/heal.mp3" id="4_ljjkg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iymfw"]
 atlas = ExtResource("1_p1d3y")
@@ -129,5 +130,9 @@ animation = &"collect"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_gkpfw")
+
+[node name="sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ljjkg")
+volume_db = -10.0
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

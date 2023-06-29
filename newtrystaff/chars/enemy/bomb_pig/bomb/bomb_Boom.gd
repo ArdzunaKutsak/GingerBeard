@@ -1,6 +1,9 @@
 extends EnemyStateEnemy
 
 func enter(_msg: Dictionary={}):
+	if owner.is_on_screen:
+		$"../../on".stop()
+		$"../../boom".play()
 	owner.get_child(0).play('boom')
 	$"../../BoomArea".set_deferred('monitorable', true)
 	$"../../BoomArea".set_deferred('monitoring', true)

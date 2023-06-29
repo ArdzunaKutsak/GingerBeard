@@ -6,7 +6,7 @@ func enter(_msg: Dictionary={}):
 	enemy.get_child(0).play('run')
 	
 func inner_physics_process(_delta):
-	if enemy.aim.position.x - enemy.position.x > 0:
+	if enemy.aim.global_position.x - enemy.global_position.x > 0:
 		enemy.direction = 1
 	else:
 		enemy.direction = -1

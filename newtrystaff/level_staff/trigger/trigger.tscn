@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dttrllvqvgvr3"]
+[gd_scene load_steps=7 format=3 uid="uid://dttrllvqvgvr3"]
 
 [ext_resource type="Texture2D" uid="uid://3tx4utoax13t" path="res://newtrystaff/level_staff/trigger/trigger.png" id="1_8ne8s"]
 [ext_resource type="Script" path="res://newtrystaff/level_staff/trigger/trigger.gd" id="1_tdk0q"]
 [ext_resource type="Texture2D" uid="uid://b5yhn63bsfi0q" path="res://newtrystaff/level_staff/trigger/trigger_on.png" id="2_xl2gk"]
+[ext_resource type="AudioStream" uid="uid://c25gjpkh85hso" path="res://newtrystaff/sounds/trigger.wav" id="4_4n8fl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0q6oo"]
 animations = [{
@@ -30,7 +31,7 @@ script = ExtResource("1_tdk0q")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0q6oo")
-animation = &"on"
+animation = &"off"
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
@@ -38,5 +39,8 @@ collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_nrgej")
+
+[node name="on" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4n8fl")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -21,6 +21,7 @@ func _physics_process(delta):
 func hit():
 	delta_rotation = 0.33
 	visible = true
-	velocity.x = randi_range(100,300)
-	velocity.y = randi_range(-200,100)
+	$"../brick3".visible = false
+	#velocity.x = randi_range(100,300)
+	#velocity.y = randi_range(-200,100)
 

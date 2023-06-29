@@ -1,11 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://d55jh0oex8q2"]
+[gd_scene load_steps=20 format=3 uid="uid://d55jh0oex8q2"]
 
 [ext_resource type="Texture2D" uid="uid://blh2ia4543lov" path="res://newtrystaff/every/Cat Sprite Sheet.png" id="1_nkh4d"]
 [ext_resource type="Script" path="res://newtrystaff/level_staff/cat/cat.gd" id="1_y2e0y"]
-[ext_resource type="FontFile" uid="uid://qel5im2487lr" path="res://newtrystaff/fonts/zx_spectrum-7_bold.ttf" id="2_ut40d"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_djvg1"]
-size = Vector2(5, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dppr0"]
 atlas = ExtResource("1_nkh4d")
@@ -151,39 +147,10 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yw83f"]
-size = Vector2(50.375, 29)
-
 [node name="cat" type="Node2D"]
 script = ExtResource("1_y2e0y")
 
-[node name="Label" type="Label" parent="."]
-offset_left = -27.0
-offset_top = -28.0
-offset_right = 183.0
-theme_override_fonts/font = ExtResource("2_ut40d")
-theme_override_font_sizes/font_size = 10
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-collision_layer = 0
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(0.5, 11)
-shape = SubResource("RectangleShape2D_djvg1")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8pq7a")
 animation = &"idle"
 frame_progress = 0.27497
-
-[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
-collision_layer = 0
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
-position = Vector2(24.8125, 14.5)
-shape = SubResource("RectangleShape2D_yw83f")
-
-[connection signal="area_entered" from="CharacterBody2D/Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="CharacterBody2D/Area2D" to="." method="_on_area_2d_area_exited"]

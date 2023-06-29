@@ -13,5 +13,6 @@ func _on_area_entered(area):
 	collision_layer = 0
 	collision_mask = 0
 	sprite.animation = 'collect'
+	$sound.play()
 	await sprite.animation_finished
 	queue_free()

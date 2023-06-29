@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjc8u58iyta8o"]
+
+[ext_resource type="Script" path="res://newtrystaff/level_staff/traps/slide_needles/slide_needles.gd" id="1_27eca"]
+[ext_resource type="PackedScene" uid="uid://bl2255agblmlw" path="res://newtrystaff/rooms/rooms_bricks/rooms_bricks.tscn" id="1_gf31d"]
+[ext_resource type="PackedScene" uid="uid://d07s2esxd6r5m" path="res://newtrystaff/level_staff/traps/long_needles.tscn" id="2_io5ma"]
+[ext_resource type="PackedScene" uid="uid://cwofaslc2aum1" path="res://newtrystaff/level_staff/platforms/2_cell_platform.tscn" id="4_omfl0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j4oeu"]
+size = Vector2(30, 126)
+
+[node name="slide_needles" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_27eca")
+
+[node name="rooms_bricks" parent="." instance=ExtResource("1_gf31d")]
+layer_0/tile_data = PackedInt32Array(-196609, 655360, 4, -131073, 655360, 5, -65537, 655360, 4, -1, 655360, 5, 65535, 655360, 6, 131071, 655360, 7, -262144, 720896, 4, -196608, 720896, 5, -131072, 720896, 4, -65536, 720896, 5, 0, 720896, 6, 65536, 720896, 7, -327681, 655360, 2, -262145, 655360, 3, -393216, 720896, 2, -327680, 720896, 3)
+
+[node name="long_needles" parent="." instance=ExtResource("2_io5ma")]
+z_index = 0
+position = Vector2(16, -73)
+rotation = 1.5708
+scale = Vector2(1.3, 1.3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_j4oeu")
+
+[node name="2_cell_platform" parent="." instance=ExtResource("4_omfl0")]
+z_index = -1
+position = Vector2(-12, 17)
+
+[node name="2_cell_platform2" parent="." instance=ExtResource("4_omfl0")]
+z_index = -1
+position = Vector2(-12, -42)
+
+[node name="2_cell_platform3" parent="." instance=ExtResource("4_omfl0")]
+z_index = -1
+position = Vector2(-12, -96)

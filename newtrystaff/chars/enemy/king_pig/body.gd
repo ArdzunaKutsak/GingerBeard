@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var player = $"../../Player"
 @onready var dialog = $"../../Player/UI/dialog"
 
-var health = 1
+var health = 2
 var start_fight = false
 var direction = -1
 var death = false

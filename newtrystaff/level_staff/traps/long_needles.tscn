@@ -7,18 +7,3 @@ z_index = -1
 
 [node name="needles" parent="." instance=ExtResource("1_aqdye")]
 position = Vector2(-8, -8)
-
-[node name="needles2" parent="." instance=ExtResource("1_aqdye")]
-position = Vector2(8, -8)
-
-[node name="needles3" parent="." instance=ExtResource("1_aqdye")]
-position = Vector2(24, -8)
-
-[node name="needles4" parent="." instance=ExtResource("1_aqdye")]
-position = Vector2(40, -8)
-
-[node name="needles5" parent="." instance=ExtResource("1_aqdye")]
-position = Vector2(56, -8)
-
-[node name="needles6" parent="." instance=ExtResource("1_aqdye")]
-position = Vector2(72, -8)

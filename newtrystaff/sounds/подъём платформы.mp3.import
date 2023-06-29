@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bu06u7gnxp7hc"
+path="res://.godot/imported/подъём платформы.mp3-a392bdb55653700a7bfb8d9cc412bf94.mp3str"
+
+[deps]
+
+source_file="res://newtrystaff/sounds/подъём платформы.mp3"
+dest_files=["res://.godot/imported/подъём платформы.mp3-a392bdb55653700a7bfb8d9cc412bf94.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

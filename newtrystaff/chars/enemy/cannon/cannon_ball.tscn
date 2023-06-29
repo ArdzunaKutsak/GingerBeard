@@ -1,0 +1,95 @@
+[gd_scene load_steps=14 format=3 uid="uid://cwyoc5wo8pmfg"]
+
+[ext_resource type="Script" path="res://newtrystaff/chars/enemy/cannon/cannon_ball.gd" id="1_eg6ec"]
+[ext_resource type="Texture2D" uid="uid://tmyui7k1dvwu" path="res://newtrystaff/every/Sprites/09-Bomb/Boooooom (52x56).png" id="1_fjluv"]
+[ext_resource type="Texture2D" uid="uid://cnfv1mggjm52f" path="res://newtrystaff/every/Sprites/10-Cannon/Cannon Ball 2.png" id="2_gghf4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6n088"]
+atlas = ExtResource("1_fjluv")
+region = Rect2(0, 0, 52, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnv06"]
+atlas = ExtResource("1_fjluv")
+region = Rect2(52, 0, 52, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7hhj"]
+atlas = ExtResource("1_fjluv")
+region = Rect2(104, 0, 52, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ox42"]
+atlas = ExtResource("1_fjluv")
+region = Rect2(156, 0, 52, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnnx5"]
+atlas = ExtResource("1_fjluv")
+region = Rect2(208, 0, 52, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ta10f"]
+atlas = ExtResource("1_fjluv")
+region = Rect2(260, 0, 52, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spnbi"]
+atlas = ExtResource("2_gghf4")
+region = Rect2(0, 0, 12, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2ttty"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6n088")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnv06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7hhj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ox42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnnx5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ta10f")
+}],
+"loop": false,
+"name": &"boom",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spnbi")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eee52"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pwf5m"]
+radius = 6.0
+
+[node name="cannon_ball" type="AnimatableBody2D"]
+collision_layer = 0
+collision_mask = 277
+script = ExtResource("1_eg6ec")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2ttty")
+animation = &"boom"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_eee52")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 277
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_pwf5m")
+debug_color = Color(0.968627, 0, 0.470588, 0.419608)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

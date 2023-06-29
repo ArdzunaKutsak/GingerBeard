@@ -7,7 +7,6 @@
 size = Vector2(30, 126)
 
 [node name="slide_wall" type="CharacterBody2D"]
-collision_layer = 16
 collision_mask = 16
 script = ExtResource("1_4bvcp")
 

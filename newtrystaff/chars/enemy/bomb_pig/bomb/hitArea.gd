@@ -2,7 +2,7 @@ extends Area2D
 	
 func _on_area_entered(area):
 	var x
-	if owner.position.x > area.owner.position.x:
+	if owner.global_position.x > area.owner.global_position.x:
 		x = 150
 	else:
 		x = -150

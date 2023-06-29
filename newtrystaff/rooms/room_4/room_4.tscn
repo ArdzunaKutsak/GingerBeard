@@ -1,0 +1,83 @@
+[gd_scene load_steps=7 format=3 uid="uid://ioqloq0a72fd"]
+
+[ext_resource type="PackedScene" uid="uid://bl2255agblmlw" path="res://newtrystaff/rooms/rooms_bricks/rooms_bricks.tscn" id="1_83uv3"]
+[ext_resource type="Script" path="res://newtrystaff/rooms/room_4/room_4.gd" id="1_uuqdh"]
+[ext_resource type="PackedScene" uid="uid://deuivgw4fo2xq" path="res://newtrystaff/chars/Player/player.tscn" id="2_qyv5g"]
+[ext_resource type="PackedScene" uid="uid://crafbkrd4vwxy" path="res://newtrystaff/level_staff/box/box.tscn" id="4_fhwa4"]
+[ext_resource type="Script" path="res://newtrystaff/rooms/room_4/Label.gd" id="5_roqoo"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lnrri"]
+
+[node name="room_4" type="Node2D"]
+position = Vector2(64, -15)
+script = ExtResource("1_uuqdh")
+
+[node name="rooms_bricks" parent="." instance=ExtResource("1_83uv3")]
+position = Vector2(-64, 15)
+layer_0/tile_data = PackedInt32Array(0, 262144, 10, 65536, 262144, 11, 1, 327680, 10, 65537, 327680, 11, 2, 262144, 10, 65538, 262144, 11, 3, 327680, 10, 65539, 327680, 11, 4, 262144, 10, 65540, 262144, 11, 5, 327680, 10, 65541, 327680, 11, 6, 262144, 10, 65542, 262144, 11, 7, 327680, 10, 65543, 327680, 11, 8, 262144, 10, 65544, 262144, 11, 9, 327680, 10, 65545, 327680, 11, 10, 262144, 10, 65546, 262144, 11, 11, 327680, 10, 65547, 327680, 11, 12, 262144, 10, 65548, 262144, 11, 13, 327680, 10, 65549, 327680, 11, 14, 262144, 10, 65550, 262144, 11, 15, 327680, 10, 65551, 327680, 11, 16, 262144, 10, 65552, 262144, 11, 17, 327680, 10, 65553, 327680, 11)
+
+[node name="Player" parent="." instance=ExtResource("2_qyv5g")]
+position = Vector2(35, -114)
+
+[node name="Box" parent="." instance=ExtResource("4_fhwa4")]
+position = Vector2(75, 0)
+physics_material_override = SubResource("PhysicsMaterial_lnrri")
+
+[node name="Label" type="Label" parent="Box"]
+offset_top = -41.0
+offset_right = 40.0
+offset_bottom = -18.0
+script = ExtResource("5_roqoo")
+metadata/_edit_use_anchors_ = true
+
+[node name="Box4" parent="." instance=ExtResource("4_fhwa4")]
+position = Vector2(81, -30)
+physics_material_override = SubResource("PhysicsMaterial_lnrri")
+
+[node name="Label" type="Label" parent="Box4"]
+offset_top = -41.0
+offset_right = 40.0
+offset_bottom = -18.0
+script = ExtResource("5_roqoo")
+metadata/_edit_use_anchors_ = true
+
+[node name="Box5" parent="." instance=ExtResource("4_fhwa4")]
+position = Vector2(81, -58)
+physics_material_override = SubResource("PhysicsMaterial_lnrri")
+
+[node name="Label" type="Label" parent="Box5"]
+offset_top = -41.0
+offset_right = 40.0
+offset_bottom = -18.0
+script = ExtResource("5_roqoo")
+metadata/_edit_use_anchors_ = true
+
+[node name="Box6" parent="." instance=ExtResource("4_fhwa4")]
+position = Vector2(81, -153)
+physics_material_override = SubResource("PhysicsMaterial_lnrri")
+
+[node name="Label" type="Label" parent="Box6"]
+offset_top = -41.0
+offset_right = 40.0
+offset_bottom = -18.0
+script = ExtResource("5_roqoo")
+metadata/_edit_use_anchors_ = true
+
+[node name="Box2" parent="." instance=ExtResource("4_fhwa4")]
+position = Vector2(81, -106)
+
+[node name="Label" type="Label" parent="Box2"]
+offset_top = -58.0
+offset_right = 40.0
+offset_bottom = -35.0
+script = ExtResource("5_roqoo")
+metadata/_edit_use_anchors_ = true
+
+[node name="Box3" parent="." instance=ExtResource("4_fhwa4")]
+position = Vector2(81, -218)
+
+[node name="Label" type="Label" parent="Box3"]
+offset_top = -95.0
+offset_right = 40.0
+offset_bottom = -72.0
+script = ExtResource("5_roqoo")

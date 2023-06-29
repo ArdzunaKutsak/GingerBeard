@@ -15,7 +15,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ckxa"]
-size = Vector2(12.625, 6.25)
+size = Vector2(91.3125, 5)
 
 [node name="needles" type="Area2D"]
 collision_layer = 128
@@ -26,6 +26,31 @@ script = ExtResource("1_gxj8r")
 sprite_frames = SubResource("SpriteFrames_4x4h5")
 animation = &"idle"
 
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(16, 0)
+sprite_frames = SubResource("SpriteFrames_4x4h5")
+animation = &"idle"
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+position = Vector2(32, 0)
+sprite_frames = SubResource("SpriteFrames_4x4h5")
+animation = &"idle"
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
+position = Vector2(48, 0)
+sprite_frames = SubResource("SpriteFrames_4x4h5")
+animation = &"idle"
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="."]
+position = Vector2(64, 0)
+sprite_frames = SubResource("SpriteFrames_4x4h5")
+animation = &"idle"
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="."]
+position = Vector2(80, 0)
+sprite_frames = SubResource("SpriteFrames_4x4h5")
+animation = &"idle"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4.875)
+position = Vector2(39.3438, 5.5)
 shape = SubResource("RectangleShape2D_1ckxa")

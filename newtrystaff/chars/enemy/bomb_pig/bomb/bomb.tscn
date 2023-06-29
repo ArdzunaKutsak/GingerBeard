@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://junvvq2qg62b"]
+[gd_scene load_steps=28 format=3 uid="uid://junvvq2qg62b"]
 
 [ext_resource type="Script" path="res://newtrystaff/chars/enemy/bomb_pig/bomb/bomb.gd" id="1_2kci4"]
 [ext_resource type="Texture2D" uid="uid://tmyui7k1dvwu" path="res://newtrystaff/every/Sprites/09-Bomb/Boooooom (52x56).png" id="1_enquf"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" path="res://newtrystaff/chars/enemy/bomb_pig/bomb/idle.gd" id="6_nu6ji"]
 [ext_resource type="Script" path="res://newtrystaff/chars/enemy/bomb_pig/bomb/on.gd" id="7_htlwp"]
 [ext_resource type="Script" path="res://newtrystaff/chars/enemy/bomb_pig/bomb/bomb_Boom.gd" id="8_er720"]
+[ext_resource type="AudioStream" uid="uid://biq4aeqtt2x4d" path="res://newtrystaff/chars/enemy/bomb_pig/bomb/fitil.wav" id="11_hj570"]
+[ext_resource type="AudioStream" uid="uid://cfnmxcdxqkosw" path="res://newtrystaff/chars/enemy/bomb_pig/bomb/boom.mp3" id="12_tatjd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qil10"]
 atlas = ExtResource("1_enquf")
@@ -124,12 +126,10 @@ sprite_frames = SubResource("SpriteFrames_ipije")
 animation = &"boom"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_todxu")
 
 [node name="BoomArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 22
 script = ExtResource("4_r3eoq")
@@ -139,7 +139,6 @@ shape = SubResource("CircleShape2D_fkpti")
 debug_color = Color(0.984314, 0.6, 0.701961, 0.419608)
 
 [node name="HitArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 64
 script = ExtResource("6_0732u")
@@ -150,7 +149,6 @@ shape = SubResource("CircleShape2D_g8n0y")
 debug_color = Color(0.0862745, 0.321569, 1, 0.984314)
 
 [node name="TriggerArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 23
 
@@ -171,6 +169,18 @@ script = ExtResource("7_htlwp")
 [node name="Boom" type="Node" parent="FSM"]
 script = ExtResource("8_er720")
 
+[node name="on" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_hj570")
+volume_db = -20.0
+
+[node name="boom" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_tatjd")
+volume_db = -10.0
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
 [connection signal="area_entered" from="HitArea" to="HitArea" method="_on_area_entered"]
 [connection signal="area_entered" from="TriggerArea" to="FSM/On" method="_on_trigger_area_area_entered"]
 [connection signal="body_entered" from="TriggerArea" to="FSM/On" method="_on_trigger_area_body_entered"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

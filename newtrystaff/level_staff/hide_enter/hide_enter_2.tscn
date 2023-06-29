@@ -111,7 +111,7 @@ texture = ExtResource("8_ik7mf")
 shape = SubResource("RectangleShape2D_3c3wm")
 
 [node name="hitbox" type="Area2D" parent="."]
-collision_layer = 0
+collision_layer = 2
 collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]

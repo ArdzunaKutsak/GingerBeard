@@ -1,8 +1,26 @@
-extends CharacterBody2D
-
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+extends StaticBody2D
+var is_collide = false
+var is_on_floor = false
+var velY = 0
+var pieces_path = load("res://newtrystaff/level_staff/box/box_pieces/pieces.tscn")
+func call_pieces():
+	var pieces = pieces_path.instantiate()
+	#if owner != null:
+		#owner.call_deferred('add_child', pieces)
+	#else: 
+	get_parent().call_deferred('add_child', pieces)
+	pieces.position = position
+	pieces.breack()
+	queue_free()
 
 func _process(delta):
-	if not is_on_floor():
-		velocity.y += delta * gravity
-	move_and_slide()
+	if !is_collide:
+		is_collide = move_and_collide(Vector2(0, velY))
+		velY += delta * 9.80
+	else: 
+		velY = 0
+		is_on_floor = true
+
+
+func _on_collide_check_body_exited(body):
+	is_collide = false

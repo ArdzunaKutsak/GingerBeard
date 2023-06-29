@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0ffwb7gir2o3"]
+[gd_scene load_steps=4 format=3 uid="uid://d0ffwb7gir2o3"]
 
 [ext_resource type="Script" path="res://newtrystaff/UI/dialog/dialog.gd" id="1_m0116"]
-[ext_resource type="Texture2D" uid="uid://bjx3h1pfxq480" path="res://icon.svg" id="1_q6wi7"]
 [ext_resource type="FontFile" uid="uid://qel5im2487lr" path="res://newtrystaff/fonts/zx_spectrum-7_bold.ttf" id="2_ls02s"]
 [ext_resource type="Texture2D" uid="uid://d1rlmpguf455n" path="res://newtrystaff/every/Treasure Hunters/Treasure Hunters/Wood and Paper UI/Sprites/Mobile Buttons/Mobile Buttons/4.png" id="3_adv7v"]
 
@@ -24,7 +23,6 @@ offset_bottom = 128.0
 layout_mode = 0
 offset_right = 128.0
 offset_bottom = 128.0
-texture = ExtResource("1_q6wi7")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0

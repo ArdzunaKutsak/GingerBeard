@@ -4,6 +4,7 @@ extends EnemyStateEnemy
 
 func enter(_msg: Dictionary={}):
 	enemy.health -= 1
+	
 	enemy.sprite.play("hit")
 	#$"../../Zones/HitBox".set_deferred('monitoring', false)
 func inner_physics_process(_delta):

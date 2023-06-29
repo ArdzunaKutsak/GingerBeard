@@ -8,3 +8,8 @@ func _on_area_entered(area):
 	area.owner.dialog(door_text_array)
 	queue_free()
 
+
+
+func _on_body_entered(body):
+	body.dialog(door_text_array)
+	queue_free()

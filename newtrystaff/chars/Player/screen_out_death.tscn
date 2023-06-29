@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqmaf6pfa0b30"]
+
+[ext_resource type="Script" path="res://newtrystaff/chars/Player/screen_out_death.gd" id="1_m1ljj"]
+
+[node name="screen_out_death" type="VisibleOnScreenNotifier2D"]
+script = ExtResource("1_m1ljj")
+
+[connection signal="screen_exited" from="." to="." method="_on_screen_exited"]

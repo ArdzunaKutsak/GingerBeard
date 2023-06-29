@@ -8,9 +8,9 @@ func enter(_msg: Dictionary={}):
 	owner.can_attack = true
 	player.health -= 1
 	player.emit_signal('health_count')
-	player.sprite.play("hit")
-	for sound in $"../../sounds".get_children():
-		sound.stop()
+	#player.sprite.play("hit")
+	#for sound in $"../../sounds".get_children():
+	#	sound.stop()
 	match player.health:
 		2:
 			$"../../sounds/hit".play()
@@ -18,7 +18,9 @@ func enter(_msg: Dictionary={}):
 			$"../../sounds/hit2".play()
 		0:
 			$"../../sounds/hit4".play()
+			$"../../Zones/HitBox".queue_free()
 	await $"../../HittingTimer".timeout
+	#await player.sprite.animation_finished
 	if player.health < 1:
 		state_machine.change_to('Death')
 	else:

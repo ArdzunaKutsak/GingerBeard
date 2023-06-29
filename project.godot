@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="newtry"
-run/main_scene="res://newtrystaff/rooms/room_2/room_2.tscn"
+run/main_scene="res://newtrystaff/rooms/room_4/room_4.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
+run/low_processor_mode=true
 config/icon="res://icon.svg"
 
 [display]
@@ -58,6 +59,7 @@ attack={
 
 [layer_names]
 
+2d_render/layer_6="enemy blood"
 2d_physics/layer_1="World"
 2d_physics/layer_2="EnemyHitBox"
 2d_physics/layer_3="Staff"
@@ -71,6 +73,7 @@ attack={
 2d_physics/layer_11="EnemyBody"
 2d_physics/layer_12="Doors"
 2d_physics/layer_13="JumpPoint"
+2d_physics/layer_14="BossBox"
 
 [rendering]
 

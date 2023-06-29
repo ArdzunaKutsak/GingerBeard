@@ -1,10 +1,8 @@
 #run.gd
 extends EnemyStateEnemy
 
-
 func enter(_msg: Dictionary={}):
 	enemy.get_child(0).play('run')
-	
 func inner_physics_process(_delta):
 	if enemy.direction < 0 and enemy.sprite.flip_h:
 		enemy.sprite.flip_h = false
@@ -25,9 +23,9 @@ func inner_physics_process(_delta):
 		#$"../../no_fall_shit/CollisionShape2D".position.y = 10
 		$"../../Zones/NoFallBox".position.x = 20
 		
-	if enemy.health <= 0:
-			state_machine.change_to('Death')
-			return
+	#if enemy.health <= 0:
+			#state_machine.change_to('Death')
+			#return
 	enemy.velocity.x = enemy.SPEED * enemy.direction
 	enemy.move_and_slide()
 	if enemy.is_on_wall():

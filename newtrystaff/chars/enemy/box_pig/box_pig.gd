@@ -8,5 +8,5 @@ func _on_timer_2_timeout():
 		$FSM.change_to('Agro')
 
 
-func _on_hit_box_area_entered(area):
+func _on_hit_box_area_entered(_area):
 	$FSM.change_to('Hit')

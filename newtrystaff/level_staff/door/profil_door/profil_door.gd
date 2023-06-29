@@ -1,9 +1,16 @@
 extends Node2D
 
-var opened = false
+var opened
+
 func open():
 	opened = true
-func _process(_delta):
-	if opened:
-		$AnimatedSprite2D.play('open')
-		$CollisionShape2D.disabled = true
+	$AnimatedSprite2D.play('open')
+	$CollisionShape2D.set_deferred('disabled', true)
+func close():
+	opened = false
+	$AnimatedSprite2D.play('idle')
+	$CollisionShape2D.set_deferred('disabled', false)
+
+func _ready():
+	close()
+		

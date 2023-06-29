@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ceatab26i6n51"]
+[gd_scene load_steps=17 format=3 uid="uid://ceatab26i6n51"]
 
 [ext_resource type="Script" path="res://newtrystaff/collect/door_key.gd" id="1_6ahc7"]
 [ext_resource type="Texture2D" uid="uid://b5wxafhck1tfn" path="res://newtrystaff/every/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Effect/1.png" id="2_5vr2w"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cay446yx2k4bp" path="res://newtrystaff/every/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/6.png" id="11_1kxqx"]
 [ext_resource type="Texture2D" uid="uid://b4dei1f4acseu" path="res://newtrystaff/every/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/7.png" id="12_oxxpd"]
 [ext_resource type="Texture2D" uid="uid://d4agrbxrrhhwp" path="res://newtrystaff/every/Treasure Hunters/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/8.png" id="13_yryjm"]
+[ext_resource type="AudioStream" uid="uid://iv1ifaodbm0c" path="res://newtrystaff/collect/key_collect.mp3" id="14_kooxi"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3u2fn"]
 animations = [{
@@ -76,5 +77,8 @@ animation = &"idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_ctcvy")
+
+[node name="sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_kooxi")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

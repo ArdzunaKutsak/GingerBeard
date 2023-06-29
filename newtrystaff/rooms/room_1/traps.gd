@@ -17,10 +17,13 @@ func bomb_drop():
 	var delta_x = 150
 	for i in 4:
 		var bomb_instance1 = bomb.instantiate()
-		$platform_button3.add_child(bomb_instance1)
+		$platform_button3.call_deferred('add_child', bomb_instance1)
+		bomb_instance1._ready()
+		bomb_instance1.get_child(5)._ready()
+		bomb_instance1.get_child(5).call_deferred('change_to', 'On', {velY = 0, velX = 0, aim = 'player'})
 		bomb_instance1.set_position(Vector2(owner.position.x + delta_x, owner.position.y - 150))
-		bomb_instance1.get_node('FSM').change_to('On', {velY = 0, velX = 0, aim = 'player'})
 		delta_x -= 75
+		
 		
 	
 

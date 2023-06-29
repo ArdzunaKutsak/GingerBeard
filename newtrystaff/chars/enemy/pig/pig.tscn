@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://b8vn5k200odew"]
+[gd_scene load_steps=59 format=3 uid="uid://b8vn5k200odew"]
 
 [ext_resource type="Script" path="res://newtrystaff/chars/enemy/pig/pig.gd" id="1_8430p"]
 [ext_resource type="Texture2D" uid="uid://ygcfsiqh0lce" path="res://newtrystaff/every/Sprites/03-Pig/Attack (34x28).png" id="1_cth48"]
@@ -20,6 +20,9 @@
 [ext_resource type="Script" path="res://newtrystaff/chars/enemy/pig/FSM/attack.gd" id="19_dp26x"]
 [ext_resource type="Script" path="res://newtrystaff/chars/enemy/pig/FSM/agro.gd" id="20_a0bqp"]
 [ext_resource type="Script" path="res://newtrystaff/chars/enemy/pig/FSM/death.gd" id="21_wmihk"]
+[ext_resource type="Texture2D" uid="uid://bi6nivqfobca2" path="res://64px.png" id="21_xhlak"]
+[ext_resource type="Script" path="res://newtrystaff/chars/Player/blood.gd" id="22_4ghcw"]
+[ext_resource type="AudioStream" uid="uid://bcyerbhnpi8q4" path="res://newtrystaff/chars/enemy/sound/enemy_hurt.mp3" id="23_a6hpv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q3y7w"]
 atlas = ExtResource("1_cth48")
@@ -174,6 +177,24 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_b5qs1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5qs1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5qs1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5qs1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5qs1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5qs1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5qs1")
 }],
 "loop": false,
 "name": &"death",
@@ -267,7 +288,7 @@ size = Vector2(250, 7)
 size = Vector2(12, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dxwjq"]
-size = Vector2(13, 14)
+size = Vector2(11, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ifbsb"]
 size = Vector2(1.6875, 10)
@@ -282,8 +303,11 @@ collision_mask = 257
 script = ExtResource("1_8430p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 33
 sprite_frames = SubResource("SpriteFrames_cp5ls")
-animation = &"jump"
+animation = &"attack"
+frame = 5
+frame_progress = 1.0
 
 [node name="Zones" type="Node2D" parent="."]
 
@@ -299,7 +323,6 @@ shape = SubResource("RectangleShape2D_e6m84")
 debug_color = Color(1, 0, 0, 0.25098)
 
 [node name="HitBox" type="Area2D" parent="Zones"]
-visible = false
 collision_layer = 2
 collision_mask = 64
 script = ExtResource("3_4y48v")
@@ -315,18 +338,17 @@ collision_mask = 16
 script = ExtResource("11_oqpq2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/Attack"]
-position = Vector2(-11.5, 7)
+position = Vector2(-10.5, 7)
 shape = SubResource("RectangleShape2D_dxwjq")
 debug_color = Color(1, 0.462745, 0.145098, 0.603922)
 
 [node name="Damage" type="Area2D" parent="Zones"]
-visible = false
 collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Zones/Damage"]
 position = Vector2(-10, 0)
-polygon = PackedVector2Array(-8, 2, -8, -9, -1, -12, 4, -11, 4, 13)
+polygon = PackedVector2Array(-8, 7, -5, -5, 0, -8, 4, -8, 4, 13)
 
 [node name="NoFallBox" type="Area2D" parent="Zones"]
 collision_layer = 257
@@ -343,6 +365,7 @@ position = Vector2(3, 6)
 shape = SubResource("RectangleShape2D_hvlj6")
 
 [node name="Debug_data" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -11.0
@@ -417,6 +440,22 @@ one_shot = true
 
 [node name="NotFallTimer" type="Timer" parent="."]
 one_shot = true
+autostart = true
+
+[node name="blood" type="PointLight2D" parent="."]
+position = Vector2(3, 5)
+enabled = false
+energy = 16.0
+range_item_cull_mask = 32
+texture = ExtResource("21_xhlak")
+texture_scale = 0.25
+script = ExtResource("22_4ghcw")
+
+[node name="Timer" type="Timer" parent="blood"]
+wait_time = 0.1
+
+[node name="hru" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_a6hpv")
 
 [connection signal="area_entered" from="Zones/AgroArea" to="Zones/AgroArea" method="_on_area_entered"]
 [connection signal="area_exited" from="Zones/AgroArea" to="Zones/AgroArea" method="_on_area_exited"]
@@ -424,3 +463,5 @@ one_shot = true
 [connection signal="area_entered" from="Zones/Attack" to="Zones/Attack" method="_on_area_entered"]
 [connection signal="area_exited" from="Zones/Attack" to="Zones/Attack" method="_on_area_exited"]
 [connection signal="body_exited" from="Zones/NoFallBox" to="Zones/NoFallBox" method="_on_body_exited"]
+[connection signal="timeout" from="HittingTimer" to="Zones/HitBox" method="_on_hitting_timer_timeout"]
+[connection signal="timeout" from="blood/Timer" to="blood" method="_on_timer_timeout"]

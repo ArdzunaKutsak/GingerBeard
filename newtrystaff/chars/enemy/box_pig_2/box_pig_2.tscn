@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://csfvobtnnuoye"]
+
+[ext_resource type="Script" path="res://newtrystaff/chars/enemy/box_pig_2/box_pig_2.gd" id="1_vw6uj"]
+[ext_resource type="Script" path="res://newtrystaff/chars/enemy/box_pig_2/agro.gd" id="2_qbojr"]
+[ext_resource type="PackedScene" uid="uid://crafbkrd4vwxy" path="res://newtrystaff/level_staff/box/box.tscn" id="3_fmx3x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3u6fq"]
+size = Vector2(96.5, 10)
+
+[node name="box_pig_2" type="Node2D"]
+script = ExtResource("1_vw6uj")
+
+[node name="agro" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("2_qbojr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="agro"]
+position = Vector2(48, 0)
+shape = SubResource("RectangleShape2D_3u6fq")
+one_way_collision_margin = 0.0
+
+[node name="Box" parent="." instance=ExtResource("3_fmx3x")]
+
+[connection signal="area_entered" from="agro" to="agro" method="_on_area_entered"]

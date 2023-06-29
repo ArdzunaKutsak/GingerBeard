@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2gtqtnmh867h"]
+[gd_scene load_steps=8 format=3 uid="uid://b2gtqtnmh867h"]
 
 [ext_resource type="Script" path="res://newtrystaff/level_staff/traps/platform_button/platform_button.gd" id="1_c1ou7"]
 [ext_resource type="Texture2D" uid="uid://cu65qk0proj2k" path="res://newtrystaff/every/Terrain (32x32).png" id="1_ga2kh"]
+[ext_resource type="AudioStream" uid="uid://c3ob5ekrx0x1r" path="res://newtrystaff/sounds/button_press.wav" id="3_0ugnt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d3ip7"]
 size = Vector2(32, 11.5)
@@ -1185,7 +1186,7 @@ script = ExtResource("1_c1ou7")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 16
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 3.75)
@@ -1203,6 +1204,10 @@ layer_0/tile_data = PackedInt32Array(65535, 262144, 2, 131071, 262144, 3, 0, 327
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, 10)
 shape = SubResource("RectangleShape2D_ok035")
+
+[node name="press" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0ugnt")
+volume_db = -10.0
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

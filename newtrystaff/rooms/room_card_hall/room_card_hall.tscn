@@ -704,10 +704,10 @@ position = Vector2(70, 172)
 position = Vector2(191, 172)
 
 [node name="3" parent="cards" instance=ExtResource("16_pg060")]
-position = Vector2(313, 170)
+position = Vector2(315, 172)
 
 [node name="4" parent="cards" instance=ExtResource("16_pg060")]
-position = Vector2(437, 170)
+position = Vector2(439, 172)
 
 [node name="5" parent="cards" instance=ExtResource("16_pg060")]
-position = Vector2(560, 170)
+position = Vector2(562, 172)

@@ -2,6 +2,7 @@
 extends StatePlayer
 
 func enter(_msg: Dictionary={}):
+	$"../../sounds/attack".play()
 	$"../../Zones/Attack".collision_mask = 2
 	$"../../Zones/Attack".collision_layer = 64
 	if player.sprite.flip_h:
@@ -11,8 +12,8 @@ func enter(_msg: Dictionary={}):
 		player.attack_zone.set_scale(Vector2(1, 1 ))
 		player.attack_zone.position.x = 0
 	player.can_attack = false
-	player.velocity.y = 0
-	player.velocity.x = player.velocity.x 
+	#player.velocity.y = -5
+	#player.velocity.x = 0
 	player.sprite.play('attack')
 	$"../../CanAttackTimer".start(0.6)
 	$"../../ProgressBar".play('charge')
@@ -31,14 +32,15 @@ func inner_physics_process(_delta):
 		$"../../Zones/Attack".collision_layer = 0
 		$"../../Zones/Attack".monitoring = false
 		$"../../Zones/Attack".set_deferred('monitorable', false)
-	if player.sprite.frame == 2:
-		state_machine.change_to('Idle')
+	#if player.sprite.frame == 2 and player.sprite.animation == 'attack':
+		#state_machine.change_to('Idle')
 
 func exit():
 	$"../../Zones/Attack".collision_mask = 0
 	$"../../Zones/Attack".collision_layer = 0
 
 func _on_animated_sprite_2d_animation_finished():
-	pass
+	if player.sprite.animation == 'attack':
+		state_machine.change_to('Idle')
 
 

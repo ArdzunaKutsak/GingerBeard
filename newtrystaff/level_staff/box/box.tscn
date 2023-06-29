@@ -1,15 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://crafbkrd4vwxy"]
+[gd_scene load_steps=10 format=3 uid="uid://crafbkrd4vwxy"]
 
 [ext_resource type="Script" path="res://newtrystaff/level_staff/box/box.gd" id="1_337nu"]
 [ext_resource type="Texture2D" uid="uid://bw5660arqst4b" path="res://newtrystaff/every/Sprites/08-Box/Hit.png" id="2_pmdye"]
 [ext_resource type="Texture2D" uid="uid://6e232v373023" path="res://newtrystaff/every/Sprites/08-Box/Idle.png" id="3_fsrs3"]
 [ext_resource type="Script" path="res://newtrystaff/level_staff/box/box_hitbox.gd" id="4_fio2e"]
-[ext_resource type="Script" path="res://newtrystaff/level_staff/box/pieces.gd" id="5_p3h5l"]
-[ext_resource type="Script" path="res://newtrystaff/level_staff/box/piece.gd" id="6_oukxg"]
-[ext_resource type="Texture2D" uid="uid://c8jsj0hxxjihg" path="res://newtrystaff/every/Sprites/08-Box/Box Pieces 1.png" id="7_wefyt"]
-[ext_resource type="Texture2D" uid="uid://ckdghs8prs0bv" path="res://newtrystaff/every/Sprites/08-Box/Box Pieces 2.png" id="8_752tx"]
-[ext_resource type="Texture2D" uid="uid://6rq3kobod2q" path="res://newtrystaff/every/Sprites/08-Box/Box Pieces 3.png" id="9_pv386"]
-[ext_resource type="Texture2D" uid="uid://coa6wiqujqmx" path="res://newtrystaff/every/Sprites/08-Box/Box Pieces 4.png" id="10_1oaaw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xn8xd"]
 animations = [{
@@ -40,7 +34,11 @@ size = Vector2(21, 16)
 cull_mode = 1
 polygon = PackedVector2Array(-11, -8, -11, 8, 10, 8, 10, -8)
 
-[node name="Box" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gi0po"]
+size = Vector2(19, 17)
+
+[node name="Box" type="StaticBody2D"]
+z_index = 7
 collision_layer = 257
 collision_mask = 257
 script = ExtResource("1_337nu")
@@ -65,65 +63,16 @@ position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_8jupq")
 debug_color = Color(0.807843, 0.6, 0.701961, 0.419608)
 
-[node name="Pieces" type="Node2D" parent="."]
-script = ExtResource("5_p3h5l")
-
-[node name="1" type="CharacterBody2D" parent="Pieces"]
-collision_layer = 0
-collision_mask = 257
-script = ExtResource("6_oukxg")
-
-[node name="Sprite2D" type="Sprite2D" parent="Pieces/1"]
-position = Vector2(-6, 3)
-texture = ExtResource("7_wefyt")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pieces/1"]
-polygon = PackedVector2Array(-10, 7, -3, 7, -3, 3, -7, 0, -10, 0)
-
-[node name="2" type="CharacterBody2D" parent="Pieces"]
-collision_layer = 0
-collision_mask = 257
-script = ExtResource("6_oukxg")
-
-[node name="Sprite2D" type="Sprite2D" parent="Pieces/2"]
-position = Vector2(-6, -3)
-texture = ExtResource("8_752tx")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pieces/2"]
-position = Vector2(0, -7)
-polygon = PackedVector2Array(-10, 7, -5, 7, -2, 3, -2, 0, -10, 0)
-
-[node name="3" type="CharacterBody2D" parent="Pieces"]
-collision_layer = 0
-collision_mask = 257
-script = ExtResource("6_oukxg")
-
-[node name="Sprite2D" type="Sprite2D" parent="Pieces/3"]
-position = Vector2(5, -6)
-texture = ExtResource("9_pv386")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pieces/3"]
-position = Vector2(11, -7)
-polygon = PackedVector2Array(-10, 3, -8, 5, -2, 5, -2, 0, -10, 0)
-
-[node name="4" type="CharacterBody2D" parent="Pieces"]
-collision_layer = 0
-collision_mask = 257
-script = ExtResource("6_oukxg")
-
-[node name="Sprite2D" type="Sprite2D" parent="Pieces/4"]
-position = Vector2(5, 3)
-texture = ExtResource("10_1oaaw")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pieces/4"]
-position = Vector2(12, 0)
-polygon = PackedVector2Array(-11, 7, -3, 7, -3, 2, -8, 2, -11, 5)
-
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
-
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_quvo7")
 
+[node name="collide_check" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 257
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collide_check"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_gi0po")
+
 [connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
-[connection signal="timeout" from="Timer" to="Pieces/1" method="_on_timer_timeout"]
+[connection signal="body_exited" from="collide_check" to="." method="_on_collide_check_body_exited"]

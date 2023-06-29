@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://dusnp21xx08bw"]
+
+[ext_resource type="Script" path="res://newtrystaff/level_staff/box/pieces.gd" id="1_avg34"]
+[ext_resource type="Script" path="res://newtrystaff/level_staff/box/piece.gd" id="2_s5xtf"]
+[ext_resource type="Texture2D" uid="uid://c8jsj0hxxjihg" path="res://newtrystaff/every/Sprites/08-Box/Box Pieces 1.png" id="3_tt6tx"]
+[ext_resource type="Texture2D" uid="uid://ckdghs8prs0bv" path="res://newtrystaff/every/Sprites/08-Box/Box Pieces 2.png" id="4_f6sw5"]
+[ext_resource type="Texture2D" uid="uid://6rq3kobod2q" path="res://newtrystaff/every/Sprites/08-Box/Box Pieces 3.png" id="5_wrfby"]
+[ext_resource type="Texture2D" uid="uid://coa6wiqujqmx" path="res://newtrystaff/every/Sprites/08-Box/Box Pieces 4.png" id="6_prn64"]
+[ext_resource type="AudioStream" uid="uid://coiijqn0h6y0x" path="res://newtrystaff/chars/Player/sound/box_destroy.wav" id="7_gdl7g"]
+
+[node name="Pieces" type="Node2D"]
+script = ExtResource("1_avg34")
+
+[node name="1" type="CharacterBody2D" parent="."]
+collision_layer = 0
+collision_mask = 257
+script = ExtResource("2_s5xtf")
+
+[node name="Sprite2D" type="Sprite2D" parent="1"]
+position = Vector2(-6, 3)
+texture = ExtResource("3_tt6tx")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="1"]
+polygon = PackedVector2Array(-10, 7, -3, 7, -3, 3, -7, 0, -10, 0)
+
+[node name="2" type="CharacterBody2D" parent="."]
+collision_layer = 0
+collision_mask = 257
+script = ExtResource("2_s5xtf")
+
+[node name="Sprite2D" type="Sprite2D" parent="2"]
+position = Vector2(-6, -3)
+texture = ExtResource("4_f6sw5")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="2"]
+position = Vector2(0, -7)
+polygon = PackedVector2Array(-10, 7, -5, 7, -2, 3, -2, 0, -10, 0)
+
+[node name="3" type="CharacterBody2D" parent="."]
+collision_layer = 0
+collision_mask = 257
+script = ExtResource("2_s5xtf")
+
+[node name="Sprite2D" type="Sprite2D" parent="3"]
+position = Vector2(5, -6)
+texture = ExtResource("5_wrfby")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="3"]
+position = Vector2(11, -7)
+polygon = PackedVector2Array(-10, 3, -8, 5, -2, 5, -2, 0, -10, 0)
+
+[node name="4" type="CharacterBody2D" parent="."]
+collision_layer = 0
+collision_mask = 257
+script = ExtResource("2_s5xtf")
+
+[node name="Sprite2D" type="Sprite2D" parent="4"]
+position = Vector2(5, 3)
+texture = ExtResource("6_prn64")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="4"]
+position = Vector2(12, 0)
+polygon = PackedVector2Array(-11, 7, -3, 7, -3, 2, -8, 2, -11, 5)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="destoy" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_gdl7g")
+volume_db = -20.0
+autoplay = true
+
+[connection signal="timeout" from="Timer" to="1" method="_on_timer_timeout"]
